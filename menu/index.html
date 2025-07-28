@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>文字对话游戏 - 主菜单</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="menu-container">
+            <div class="menu-card">
+                <h1>文字对话游戏</h1>
+                <button id="new-game-btn">开始新游戏</button>
+                <button onclick="window.location.href='../load/index.html'">
+                    读取进度
+                </button>
+                <button onclick="window.location.href='../settings/index.html'">
+                    游戏设置
+                </button>
+                <button
+                    id="exit-btn"
+                    style="margin-top: 2rem; background: #e11d48"
+                >
+                    退出游戏
+                </button>
+            </div>
+        </div>
+        <script>
+            document.getElementById("new-game-btn").onclick = function () {
+                localStorage.removeItem("gameProgress");
+                window.location.href = "../game/index.html";
+            };
+            document.getElementById("exit-btn").onclick = function () {
+                window.location.href = "../index.html";
+            };
+        </script>
+    </body>
+</html>

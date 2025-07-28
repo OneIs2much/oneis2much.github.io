@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>游戏进行中</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="game-container">
+            <div class="game-dialogue">
+                <div class="game-speaker" id="game-speaker"></div>
+                <div class="game-content" id="game-content"></div>
+            </div>
+            <div class="game-actions">
+                <button id="next-button">下一步</button>
+                <button id="save-button">保存进度</button>
+                <button onclick="window.location.href='../menu/index.html'">
+                    返回主菜单
+                </button>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

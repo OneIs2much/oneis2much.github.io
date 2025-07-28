@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: url("../assets/imgs/title.jpg") center center/cover no-repeat
+        fixed;
+    position: relative;
+    font-family: "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+}
+body::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(240, 253, 250, 0.85);
+    z-index: 0;
+}
+.load-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+.load-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    padding: 2.5rem 2rem;
+    min-width: 320px;
+    max-width: 90vw;
+    text-align: center;
+}
+.load-card h2 {
+    font-size: 1.5rem;
+    color: #0891b2;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+}
+#progress-info {
+    font-size: 1.1rem;
+    color: #334155;
+    margin-bottom: 1.5rem;
+}
+.load-card button {
+    display: block;
+    width: 100%;
+    margin: 0.7rem 0;
+    padding: 0.9rem 0;
+    font-size: 1.05rem;
+    background: linear-gradient(90deg, #38bdf8 0%, #0891b2 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s, transform 0.2s;
+}
+.load-card button:hover {
+    background: linear-gradient(90deg, #0891b2 0%, #38bdf8 100%);
+    transform: translateY(-2px) scale(1.03);
+}

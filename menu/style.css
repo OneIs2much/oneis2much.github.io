@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: url("../assets/imgs/title.jpg") center center/cover no-repeat
+        fixed;
+    position: relative;
+    font-family: "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+}
+body::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(248, 250, 252, 0.85); /* 半透明遮罩 */
+    z-index: 0;
+}
+.menu-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+.menu-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    padding: 3rem 2.5rem;
+    min-width: 320px;
+    max-width: 90vw;
+    text-align: center;
+}
+.menu-card h1 {
+    font-size: 2.2rem;
+    color: #2563eb;
+    margin-bottom: 2.5rem;
+    letter-spacing: 2px;
+}
+.menu-card button {
+    display: block;
+    width: 100%;
+    margin: 1rem 0;
+    padding: 1rem 0;
+    font-size: 1.1rem;
+    background: linear-gradient(90deg, #60a5fa 0%, #2563eb 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s, transform 0.2s;
+}
+.menu-card button:hover {
+    background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
+    transform: translateY(-2px) scale(1.03);
+}
