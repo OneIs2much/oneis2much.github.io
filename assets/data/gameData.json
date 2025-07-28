@@ -1,97 +1,97 @@
 [
     {
         "speaker": "主角",
-        "content": "你好，我是主角，很高兴认识你！",
+        "content": "你好。",
         "actions": {}
     },
     {
-        "speaker": "NPC1",
-        "content": "欢迎来到这个世界，你需要帮助吗？",
-        "actions": {}
-    },
-    {
-        "speaker": "主角",
-        "content": "是的，我想知道这里有什么有趣的事情可以做。",
-        "actions": {}
-    },
-    {
-        "speaker": "NPC1",
-        "content": "你可以去东边的森林探险，或者去西边的市场逛逛。",
+        "speaker": "绝望的程序员",
+        "content": "我不好。",
         "actions": {}
     },
     {
         "speaker": "主角",
-        "content": "听起来不错，我先去市场看看吧。",
+        "content": "？",
         "actions": {}
     },
     {
-        "speaker": "NPC2",
-        "content": "欢迎来到市场！这里有各种商品，你需要什么？",
-        "actions": {}
-    },
-    {
-        "speaker": "主角",
-        "content": "我想买一些食物和装备。",
-        "actions": {}
-    },
-    {
-        "speaker": "NPC2",
-        "content": "好的，这是我们的商品清单，请慢慢挑选。",
+        "speaker": "绝望的程序员",
+        "content": "啊……我好想死……这个世界真的是太糟糕了……",
         "actions": {}
     },
     {
         "speaker": "主角",
-        "content": "谢谢，我选好了。",
+        "content": "为什么？",
         "actions": {}
     },
     {
-        "speaker": "NPC2",
-        "content": "一共是100金币，谢谢惠顾！",
-        "actions": {}
-    },
-    {
-        "speaker": "主角",
-        "content": "现在我要去森林探险了。",
-        "actions": {}
-    },
-    {
-        "speaker": "NPC3",
-        "content": "小心，森林里有很多危险的生物。",
+        "speaker": "绝望的程序员",
+        "content": "因为……我是一个程序员，就在刚刚，我把我的github仓库不小心删了，我好想死……",
         "actions": {}
     },
     {
         "speaker": "主角",
-        "content": "我会小心的，谢谢提醒。",
+        "content": "啊？",
         "actions": {}
     },
     {
-        "speaker": "NPC3",
-        "content": "如果你需要帮助，可以随时回来找我。",
-        "actions": {}
-    },
-    {
-        "speaker": "主角",
-        "content": "好的，我会记住的。",
-        "actions": {}
-    },
-    {
-        "speaker": "怪物",
-        "content": "吼！你是谁？竟敢闯入我的领地！",
+        "speaker": "绝望的程序员",
+        "content": "我好想死……",
         "actions": {}
     },
     {
         "speaker": "主角",
-        "content": "我只是路过，不想惹麻烦。",
+        "content": "啊？",
         "actions": {}
     },
     {
-        "speaker": "怪物",
-        "content": "那就留下你的财物，否则别想离开！",
+        "speaker": "绝望的程序员",
+        "content": "我好想死……",
         "actions": {}
     },
     {
         "speaker": "主角",
-        "content": "看来只能战斗了！",
+        "content": "别难过了。",
+        "actions": {}
+    },
+    {
+        "speaker": "绝望的程序员",
+        "content": "我好想死……",
+        "actions": {}
+    },
+    {
+        "speaker": "主角",
+        "content": "我给你讲个笑话。",
+        "actions": {}
+    },
+    {
+        "speaker": "绝望的程序员",
+        "content": "我好想死……",
+        "actions": {}
+    },
+    {
+        "speaker": "主角",
+        "content": "我给你讲个笑话。好笑的话，你就笑一下，就不想死了。",
+        "actions": {}
+    },
+    {
+        "speaker": "绝望的程序员",
+        "content": "你说吧。",
+        "actions": {}
+    },
+    {
+        "speaker": "主角",
+        "content": "就在刚刚，我遇到一个程序员，他告诉我，他把自己github仓库删了。你说这个程序员是不是很搞笑？",
+        "actions": {}
+    },
+    {
+        "speaker": "绝望的程序员",
+        "content": "你妈的。",
+        "actions": {}
+    },
+    {
+        "speaker": "旁白",
+        "content": "绝望的程序员突然暴起，向主角扑来！",
         "actions": {}
     },
     {
