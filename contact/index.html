@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-cn" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>contact | 奇奇怪怪的博客</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="preload" as="font" crossorigin="anonymous" href="/font/Bender.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/BenderLight.woff2"><link rel="preload" as="font" crossorigin="anonymous" href="/font/JetBrainsMono-Regular.woff2"><link rel="stylesheet" href="/css/arknights.css"><style>@font-face {
+<!DOCTYPE html><html lang="zh-cn" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>神秘链接 | 奇奇怪怪的博客</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="preload" as="font" crossorigin="anonymous" href="/font/Bender.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/BenderLight.woff2"><link rel="preload" as="font" crossorigin="anonymous" href="/font/JetBrainsMono-Regular.woff2"><link rel="stylesheet" href="/css/arknights.css"><style>@font-face {
   font-family: Bender;
   src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
 }
@@ -80,7 +80,7 @@ code.paintMermaid();
  owner: 'OneIs2much',
  admin: ['OneIs2much'],
  distractionFreeMode: false,
- id: location.pathname
+ id: decodeURI(location.pathname)
 });
 if (document.querySelector("#gitalk")) gitalk.render("gitalk");document.querySelector('.lg-container')?.remove()
 lightGallery(document.getElementById('post-bg'), {
@@ -109,7 +109,7 @@ document.addEventListener("pjax:complete", reset);document.addEventListener('pja
  owner: 'OneIs2much',
  admin: ['OneIs2much'],
  distractionFreeMode: false,
- id: location.pathname
+ id: decodeURI(location.pathname)
 });
 if (document.querySelector("#gitalk")) gitalk.render("gitalk");MathJax.Hub.Queue(["Typeset", MathJax.Hub]);document.querySelector('.lg-container')?.remove()
 const postBg = document.querySelector('#post-bg');
@@ -132,4 +132,26 @@ document.addEventListener("pjax:complete", reset);document.addEventListener('pja
  const script = document.createElement('script');
  script.src = 'https://vercount.one/js';
  document.head.appendChild(script);
-});reset()})</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">首页</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">文章</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">关于</span></a></li><li class="navItem"><a class="navBlock" href="/contact/"><span class="navItemTitle">链接</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>contact</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2025-08-11T04:28:28.000Z" id="date"> 2025-08-11</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2025-08-11T04:28:28.773Z" id="updated"> 2025-08-11</time></div></span><br><span>预计阅读时间: <div class="control">1 分钟</div></span><br><span id="vercount_container_page_pv">页面浏览: <span class="control" id="vercount_value_page_pv">加载中...</span></span></div></div><hr><div id="post-content"><div id="paginator"></div></div><div id="post-footer"></div><div id="comments"><div id="gitalk"></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="回到顶部" style="opacity: 0; display: none;">∧ </a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="切换主题"></a><a onclick="BgmControl()"><svg id="bgm-control" viewBox="0 0 30 34" fill="#18d1ff" style="width: 24px; transition: transform .3s;margin-top: 4px"><path d="M25.998 23.422V11.29h3.999v12.132h-3.999zM19.497 6.234h4.001v22.243h-4.001V6.234zM12.998.867h4v32.978h-4V.867zm-6.5 5.367h4.001v22.243H6.498V6.234zm-6.5 5.056h4v12.132h-4V11.29z"></path></svg><audio id="bgm" src="/audio/bgm.mp3" autoplay loop crossorigin="anonymous"> </audio></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://avatars.githubusercontent.com/u/146634708?v=4" alt="Logo" style="margin:0;border-radius:0;"></a><h1 id="Dr"><a href="/">oneis2mush</a></h1><div id="description"><p>无病呻吟</p></div><div id="social-links"><a class="social" target="_blank" rel="noopener" href="https://github.com/OneIs2much"><i class="fab fa-github" alt="GitHub"></i></a></div></div><div id="aside-block"></div><footer><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> 主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>
+});reset()})</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">首页</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">文章</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">关于</span></a></li><li class="navItem"><a class="navBlock" href="/contact/"><span class="navItemTitle">链接</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>神秘链接</h1></div><hr><div id="post-content"><h3 id="主题作者"><a href="#主题作者" class="headerlink" title="主题作者"></a>主题作者</h3><a class="link-card"
+      
+      href='https://github.com/Yue-plus'
+      title='一切不如意终将远去，未来风景独好。'
+      target="_blank">
+        
+        <div class="link-main link-simple"><div class="link-ico" class='item-img' data-src='https://avatars.githubusercontent.com/u/33195150'><img src='https://avatars.githubusercontent.com/u/33195150'></div><div class="link-data"><div class="link-title">Yue-plus</div><div class="link-descr">'一切不如意终将远去，未来风景独好。'</div></div></div></a>
+<div class="admonition expand-box adm-note open"
+        style="--ex-color:green">
+        <div class="ex-header">
+            <i class='i-status'></i>
+            <i class='i-adm i-note'></i>
+            <span class="ex-title">作者の专属位置
+</span>
+        </div>
+        <div class="ex-content"><p>这位是本主题的作者大大，作者大大还在开发其他粥风格的主题，感兴趣的可以了解一下~</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/Yue-plus/astro-arknights">Yue-plus/astro-arknights</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Yue-plus/vuepress-theme-rhinelab">Yue-plus/vuepress-theme-rhinelab</a></li>
+</ul>
+</div>
+        </div>
+<h3 id="友人帐"><a href="#友人帐" class="headerlink" title="友人帐"></a>友人帐</h3><div id="paginator"></div></div><div id="post-footer"></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="回到顶部" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="文章目录">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="切换主题"></a><a onclick="BgmControl()"><svg id="bgm-control" viewBox="0 0 30 34" fill="#18d1ff" style="width: 24px; transition: transform .3s;margin-top: 4px"><path d="M25.998 23.422V11.29h3.999v12.132h-3.999zM19.497 6.234h4.001v22.243h-4.001V6.234zM12.998.867h4v32.978h-4V.867zm-6.5 5.367h4.001v22.243H6.498V6.234zm-6.5 5.056h4v12.132h-4V11.29z"></path></svg><audio id="bgm" src="/audio/bgm.mp3" autoplay loop crossorigin="anonymous"> </audio></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://avatars.githubusercontent.com/u/146634708?v=4" alt="Logo" style="margin:0;border-radius:0;"></a><h1 id="Dr"><a href="/">oneis2mush</a></h1><div id="description"><p>无病呻吟</p></div><div id="social-links"><a class="social" target="_blank" rel="noopener" href="https://github.com/OneIs2much"><i class="fab fa-github" alt="GitHub"></i></a></div></div><div id="aside-block"><div id="toc-div"><h1>目录</h1><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98%E4%BD%9C%E8%80%85"><span class="toc-number">1.</span> <span class="toc-text">主题作者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8B%E4%BA%BA%E5%B8%90"><span class="toc-number">2.</span> <span class="toc-text">友人帐</span></a></li></ol></div></div><footer><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> 主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>

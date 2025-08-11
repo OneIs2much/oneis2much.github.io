@@ -80,7 +80,7 @@ code.paintMermaid();
  owner: 'OneIs2much',
  admin: ['OneIs2much'],
  distractionFreeMode: false,
- id: location.pathname
+ id: decodeURI(location.pathname)
 });
 if (document.querySelector("#gitalk")) gitalk.render("gitalk");document.querySelector('.lg-container')?.remove()
 lightGallery(document.getElementById('post-bg'), {
@@ -109,7 +109,7 @@ document.addEventListener("pjax:complete", reset);document.addEventListener('pja
  owner: 'OneIs2much',
  admin: ['OneIs2much'],
  distractionFreeMode: false,
- id: location.pathname
+ id: decodeURI(location.pathname)
 });
 if (document.querySelector("#gitalk")) gitalk.render("gitalk");MathJax.Hub.Queue(["Typeset", MathJax.Hub]);document.querySelector('.lg-container')?.remove()
 const postBg = document.querySelector('#post-bg');

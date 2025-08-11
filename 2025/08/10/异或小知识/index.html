@@ -80,7 +80,7 @@ code.paintMermaid();
  owner: 'OneIs2much',
  admin: ['OneIs2much'],
  distractionFreeMode: false,
- id: location.pathname
+ id: decodeURI(location.pathname)
 });
 if (document.querySelector("#gitalk")) gitalk.render("gitalk");document.querySelector('.lg-container')?.remove()
 lightGallery(document.getElementById('post-bg'), {
@@ -109,7 +109,7 @@ document.addEventListener("pjax:complete", reset);document.addEventListener('pja
  owner: 'OneIs2much',
  admin: ['OneIs2much'],
  distractionFreeMode: false,
- id: location.pathname
+ id: decodeURI(location.pathname)
 });
 if (document.querySelector("#gitalk")) gitalk.render("gitalk");MathJax.Hub.Queue(["Typeset", MathJax.Hub]);document.querySelector('.lg-container')?.remove()
 const postBg = document.querySelector('#post-bg');
@@ -132,7 +132,7 @@ document.addEventListener("pjax:complete", reset);document.addEventListener('pja
  const script = document.createElement('script');
  script.src = 'https://vercount.one/js';
  document.head.appendChild(script);
-});reset()})</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">首页</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">文章</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">关于</span></a></li><li class="navItem"><a class="navBlock" href="/contact/"><span class="navItemTitle">链接</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>异或小知识</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2025-08-10T10:14:04.018Z" id="date"> 2025-08-10</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2025-08-10T13:28:46.277Z" id="updated"> 2025-08-10</time></div></span><br><span>文章总字数: <div class="control">1.7k</div></span><br><span>预计阅读时间: <div class="control">6 分钟</div></span><br><span id="vercount_container_page_pv">页面浏览: <span class="control" id="vercount_value_page_pv">加载中...</span></span></div></div><hr><div id="post-content"><p>阅读提示：本人没有良好的学术素养，因此在书写本文时，并没有注意用词的严谨性，文章为了易于理解，所举的例子也较为通俗，阅读时若不当的用词引起了您的红温，请原谅我。</p>
+});reset()})</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">首页</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">文章</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">关于</span></a></li><li class="navItem"><a class="navBlock" href="/contact/"><span class="navItemTitle">链接</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>异或小知识</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2025-08-10T10:14:04.018Z" id="date"> 2025-08-10</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2025-08-11T07:24:56.784Z" id="updated"> 2025-08-11</time></div></span><br><span>文章总字数: <div class="control">2.1k</div></span><br><span>预计阅读时间: <div class="control">8 分钟</div></span><br><span id="vercount_container_page_pv">页面浏览: <span class="control" id="vercount_value_page_pv">加载中...</span></span></div></div><hr><div id="post-content"><p>阅读提示：本人没有良好的学术素养，因此在书写本文时，并没有注意用词的严谨性，文章为了易于理解，所举的例子也较为通俗，阅读时若不当的用词引起了您的红温，请原谅我。</p>
 <h2 id="定义与性质"><a href="#定义与性质" class="headerlink" title="定义与性质"></a>定义与性质</h2><blockquote>
 <p>这个部分包括对异或运算的规则和部分性质的介绍，若您对异或已经有了一部分的了解，可以直接跳过这个部分。</p>
 </blockquote>
@@ -174,19 +174,30 @@ document.addEventListener("pjax:complete", reset);document.addEventListener('pja
 <ul>
 <li>交换律：<script type="math/tex">a \oplus b = b \oplus a</script></li>
 <li>结合律：<script type="math/tex">a \oplus b \oplus c = a \oplus (b \oplus c)</script></li>
-<li>不知道该怎么称呼姑且叫作恒等律： <script type="math/tex">a \oplus 0 = a</script></li>
-<li>不知道该怎么称呼姑且叫作自反律： <script type="math/tex">a \oplus a = 0</script></li>
+<li>存在单位元 0： <script type="math/tex">a \oplus 0 = a</script></li>
+<li>存在逆元且任何元素的逆元都是自己： <script type="math/tex">a \oplus a = 0</script></li>
 </ul>
-<h3 id="引申性质"><a href="#引申性质" class="headerlink" title="引申性质"></a>引申性质</h3><ul>
+<h3 id="引申性质"><a href="#引申性质" class="headerlink" title="引申性质"></a>引申性质</h3><div class="admonition expand-box adm-note open"
+        style="--ex-color:green">
+        <div class="ex-header">
+            <i class='i-status'></i>
+            <i class='i-adm i-note'></i>
+            <span class="ex-title">异或的存储状态性质
+</span>
+        </div>
+        <div class="ex-content"><p><code>异或</code>是唯二的存在逆运算的位运算（另一个是<code>非</code>），对于一个<code>有限位</code>的存储单元来说，对其作<code>与</code>、<code>或</code>、<code>左移</code>、<code>右移</code>都可能会导致其数据无法通过逆运算还原。因此我们可以认为异或拥有存储状态的性质，也就是说，对于一个存储了<script type="math/tex">a \oplus b</script>的单元来说，它会隐含的存储 <script type="math/tex">a</script> 和 <script type="math/tex">b</script> ，我们一定可以通过异或运算将其还原成 <script type="math/tex">a</script> 或是 <script type="math/tex">b</script> 。</p>
+</div>
+        </div>
+<ul>
 <li><script type="math/tex">a \oplus b \oplus b = a</script> 证明如下：</li>
 </ul>
 <script type="math/tex; mode=display">a \oplus b \oplus b = a \oplus (b \oplus b) = a \oplus 0 = a</script><ul>
 <li><script type="math/tex">a \oplus b \oplus a = b</script> 证明如下：</li>
 </ul>
 <script type="math/tex; mode=display">a \oplus b \oplus a = b \oplus a \oplus a = b</script><ul>
-<li>以上两条性质可以推广到<script type="math/tex">n</script>位的情况。如：<script type="math/tex">a \oplus b \oplus c \oplus c \oplus b = a</script>。实用意义可以参考<a href="#异或加密">异或加密</a>。</li>
+<li>以上两条性质可以推广到<script type="math/tex">n</script>位的情况。如：<script type="math/tex">a \oplus b \oplus c \oplus c \oplus b = a</script>。实用意义可以参考<a href="#交换两个数">交换数字</a>。</li>
 </ul>
-<h2 id="异或的用处"><a href="#异或的用处" class="headerlink" title="异或的用处"></a>异或的用处</h2><h3 id="交换两个数"><a href="#交换两个数" class="headerlink" title="交换两个数"></a>交换两个数</h3><blockquote>
+<h2 id="异或的实用意义"><a href="#异或的实用意义" class="headerlink" title="异或的实用意义"></a>异或的实用意义</h2><h3 id="交换两个数"><a href="#交换两个数" class="headerlink" title="交换两个数"></a>交换两个数</h3><blockquote>
 <p>在多数编程语言中，异或使用<code>^</code>运算符表示，这一节的代码为伪代码，您可以认为是<code>C语言</code>/<code>C++</code>/<code>Java</code>等语言。</p>
 </blockquote>
 <p>一般地，想要交换两个数，我们可以这样写：</p>
@@ -197,7 +208,34 @@ document.addEventListener("pjax:complete", reset);document.addEventListener('pja
 <p>暴力的解决方案如下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums, <span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m)</span> </span>&#123;<br>    <span class="hljs-comment">// 为了方便理解，nums数组的下标为1到n，而不是0到n-1</span><br>    <span class="hljs-keyword">while</span> (m -- ) &#123;<br>        <span class="hljs-type">int</span> l, r, result = <span class="hljs-number">0</span>;<br>        cin &gt;&gt; l &gt;&gt; r;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = l; i &lt;= r; i ++ ) &#123;<br>            result ^= nums[i];<br>        &#125;<br><br>        cout &lt;&lt; result &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>考虑最坏的情况下，每次询问的长度最大为<script type="math/tex">n</script>，因此运算的代码最多会被执行<script type="math/tex">n \cdot m</script>次。</p>
-<p>注意到，我们定义一个数列<script type="math/tex">S_n</script>为原序列的前<script type="math/tex">n</script>个数相异或的结果，那么原序列中从第<code>l</code>个数到第<code>r</code>个数的异或结果便可以表示为<script type="math/tex">S_r \oplus S_{l-1}</script>，因此我们可以这样优化代码：</p>
+<p>让我们联想一下<code>前缀和</code>，如果您不了解<code>前缀和</code>，可以快速地过一下下面的介绍。</p>
+<blockquote>
+<p>若要求给定的数列<script type="math/tex">a_n</script>中，<script type="math/tex">a_l + a_{l+1} + \dots + a_{r-1} + a_{r}</script>的值为多少，我们可以定义<script type="math/tex">S_n</script>为<script type="math/tex">\sum\limits_{i=1}^{n}a_n</script>，就会有</p>
+<script type="math/tex; mode=display">a_l + a_{l+1} + a_{l+2} + \dots + a_{r-2} + a_{r-1} + a_{r} = S_r - S_{l - 1} \qquad l \ne 1或a_0=0</script><p>证明？自己证一下吧，总而言之，我们把<script type="math/tex">S_n</script>称为数列<script type="math/tex">a_n</script>的<code>前缀和</code>。</p>
+<div class="admonition expand-box adm-note fold"
+        style="--ex-color:green">
+        <div class="ex-header">
+            <i class='i-status'></i>
+            <i class='i-adm i-note'></i>
+            <span class="ex-title">简短的证明思路
+</span>
+        </div>
+        <div class="ex-content"><p>因为加法满足交换律和结合律，我们可以通过移项的方式，将部分元素消除。</p>
+</div>
+        </div>
+</blockquote>
+<p>与<code>前缀和</code>类似的是，异或运算也满足交换律和结合律，并且异或就是其本身的逆运算。因此我们定义一个数列<script type="math/tex">S_n</script>为原序列的前<script type="math/tex">n</script>个数相异或的结果，我们把这样的数列称为<code>前缀异或</code>，那么原序列中从第<code>l</code>个数到第<code>r</code>个数的异或结果便可以表示为<script type="math/tex">S_r \oplus S_{l-1}</script>，因此我们可以这样优化代码：</p>
+<div class="admonition expand-box adm-note fold"
+        style="--ex-color:green">
+        <div class="ex-header">
+            <i class='i-status'></i>
+            <i class='i-adm i-note'></i>
+            <span class="ex-title">简短的证明思路
+</span>
+        </div>
+        <div class="ex-content"><p>通过移项的方式，将部分元素消除。</p>
+</div>
+        </div>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums, <span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m)</span> </span>&#123;<br>    <span class="hljs-comment">// 为了方便理解，nums数组的下标为1到n，而不是0到n-1</span><br><br>    nums[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ ) &#123;<br>        nums[i] ^= nums[i - <span class="hljs-number">1</span>];<br>    &#125;<br><br>    <span class="hljs-keyword">while</span> (m -- ) &#123;<br>        <span class="hljs-type">int</span> l, r；<br>        cin &gt;&gt; l &gt;&gt; r;<br>        cout &lt;&lt; (nums[l - <span class="hljs-number">1</span>] ^ nums[r]) &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>考虑最坏的情况下，每次询问的长度最大为<script type="math/tex">n</script>，因此运算的代码最多会被执行<script type="math/tex">n + m</script>次。<br>当<script type="math/tex">n</script>和<script type="math/tex">m</script>的数量较大时，我们可以将二者都看作<script type="math/tex">n</script>，因此第一种写法的复杂度约为<script type="math/tex">n^2</script>，而第二种写法的复杂度约为<script type="math/tex">2n</script>，因此我们将二次级别的复杂度优化到了一次级别的复杂度。</p>
 <h3 id="异或加密"><a href="#异或加密" class="headerlink" title="异或加密"></a>异或加密</h3><blockquote>
@@ -232,4 +270,5 @@ document.addEventListener("pjax:complete", reset);document.addEventListener('pja
 <li>文件实现了真正意义上的加密，他人通过分享的方式取得了文件，文件依然是加密的状态。</li>
 <li>文件的密码没有存储在操作系统中，减少了被黑客入侵的风险。</li>
 <li>输入错误的密码会导致文件数据变成错误的数据，我们可以设立某个字段为关键字，用来校验密码是否正确，如某个字段加密前为<code>&#39;abc&#39;</code>，如果用户输入了错误的密码，导致这个字段变成了<code>&#39;1a8&#39;</code>，软件检测到校验位的字段内容不是<code>&#39;abc&#39;</code>，就可以得知用户输入的密码有误。</li>
-</ul><div id="paginator"></div></div><div id="post-footer"></div><div id="comments"><div id="gitalk"></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="回到顶部" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="文章目录">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="切换主题"></a><a onclick="BgmControl()"><svg id="bgm-control" viewBox="0 0 30 34" fill="#18d1ff" style="width: 24px; transition: transform .3s;margin-top: 4px"><path d="M25.998 23.422V11.29h3.999v12.132h-3.999zM19.497 6.234h4.001v22.243h-4.001V6.234zM12.998.867h4v32.978h-4V.867zm-6.5 5.367h4.001v22.243H6.498V6.234zm-6.5 5.056h4v12.132h-4V11.29z"></path></svg><audio id="bgm" src="/audio/bgm.mp3" autoplay loop crossorigin="anonymous"> </audio></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://avatars.githubusercontent.com/u/146634708?v=4" alt="Logo" style="margin:0;border-radius:0;"></a><h1 id="Dr"><a href="/">oneis2mush</a></h1><div id="description"><p>无病呻吟</p></div><div id="social-links"><a class="social" target="_blank" rel="noopener" href="https://github.com/OneIs2much"><i class="fab fa-github" alt="GitHub"></i></a></div></div><div id="aside-block"><div id="toc-div"><h1>目录</h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%8E%E6%80%A7%E8%B4%A8"><span class="toc-number">1.</span> <span class="toc-text">定义与性质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-number">1.2.</span> <span class="toc-text">基本性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%B3%E6%80%A7%E8%B4%A8"><span class="toc-number">1.3.</span> <span class="toc-text">引申性质</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E6%88%96%E7%9A%84%E7%94%A8%E5%A4%84"><span class="toc-number">2.</span> <span class="toc-text">异或的用处</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E4%B8%A4%E4%B8%AA%E6%95%B0"><span class="toc-number">2.1.</span> <span class="toc-text">交换两个数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%BC%80%E5%BC%82%E6%88%96"><span class="toc-number">2.2.</span> <span class="toc-text">前缀异或</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%82%E6%88%96%E5%8A%A0%E5%AF%86"><span class="toc-number">2.3.</span> <span class="toc-text">异或加密</span></a></li></ol></li></ol></div></div><footer><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> 主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>
+<li>基于这样的方案，我们还可以设计出二级加密、三级加密等。</li>
+</ul><div id="paginator"></div></div><div id="post-footer"></div><div id="comments"><div id="gitalk"></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="回到顶部" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="文章目录">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="切换主题"></a><a onclick="BgmControl()"><svg id="bgm-control" viewBox="0 0 30 34" fill="#18d1ff" style="width: 24px; transition: transform .3s;margin-top: 4px"><path d="M25.998 23.422V11.29h3.999v12.132h-3.999zM19.497 6.234h4.001v22.243h-4.001V6.234zM12.998.867h4v32.978h-4V.867zm-6.5 5.367h4.001v22.243H6.498V6.234zm-6.5 5.056h4v12.132h-4V11.29z"></path></svg><audio id="bgm" src="/audio/bgm.mp3" autoplay loop crossorigin="anonymous"> </audio></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://avatars.githubusercontent.com/u/146634708?v=4" alt="Logo" style="margin:0;border-radius:0;"></a><h1 id="Dr"><a href="/">oneis2mush</a></h1><div id="description"><p>无病呻吟</p></div><div id="social-links"><a class="social" target="_blank" rel="noopener" href="https://github.com/OneIs2much"><i class="fab fa-github" alt="GitHub"></i></a></div></div><div id="aside-block"><div id="toc-div"><h1>目录</h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%8E%E6%80%A7%E8%B4%A8"><span class="toc-number">1.</span> <span class="toc-text">定义与性质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="toc-number">1.2.</span> <span class="toc-text">基本性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%B3%E6%80%A7%E8%B4%A8"><span class="toc-number">1.3.</span> <span class="toc-text">引申性质</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E6%88%96%E7%9A%84%E5%AE%9E%E7%94%A8%E6%84%8F%E4%B9%89"><span class="toc-number">2.</span> <span class="toc-text">异或的实用意义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E4%B8%A4%E4%B8%AA%E6%95%B0"><span class="toc-number">2.1.</span> <span class="toc-text">交换两个数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%BC%80%E5%BC%82%E6%88%96"><span class="toc-number">2.2.</span> <span class="toc-text">前缀异或</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%82%E6%88%96%E5%8A%A0%E5%AF%86"><span class="toc-number">2.3.</span> <span class="toc-text">异或加密</span></a></li></ol></li></ol></div></div><footer><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> 主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>
