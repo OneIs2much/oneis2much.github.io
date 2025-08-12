@@ -6,7 +6,7 @@
   <link href="http://oneis2much.github.io/rss.xml" rel="self"/>
   
   <link href="http://oneis2much.github.io/"/>
-  <updated>2025-08-12T10:17:57.715Z</updated>
+  <updated>2025-08-12T10:44:13.019Z</updated>
   <id>http://oneis2much.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于geohash</title>
+    <link href="http://oneis2much.github.io/2025/08/12/%E5%85%B3%E4%BA%8Egeohash/"/>
+    <id>http://oneis2much.github.io/2025/08/12/%E5%85%B3%E4%BA%8Egeohash/</id>
+    <published>2025-08-12T10:41:13.444Z</published>
+    <updated>2025-08-12T10:44:13.019Z</updated>
+    
+    <content type="html"><![CDATA[<p>出租车司机接单背后的那些事。</p><span id="more"></span>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;出租车司机接单背后的那些事。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="后端" scheme="http://oneis2much.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="算法" scheme="http://oneis2much.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>异或小知识</title>
