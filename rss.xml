@@ -6,7 +6,7 @@
   <link href="http://oneis2much.github.io/rss.xml" rel="self"/>
   
   <link href="http://oneis2much.github.io/"/>
-  <updated>2025-08-22T15:51:27.363Z</updated>
+  <updated>2025-08-23T03:23:49.251Z</updated>
   <id>http://oneis2much.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://oneis2much.github.io/2025/08/12/%E5%85%B3%E4%BA%8Egeohash/"/>
     <id>http://oneis2much.github.io/2025/08/12/%E5%85%B3%E4%BA%8Egeohash/</id>
     <published>2025-08-12T10:41:13.444Z</published>
-    <updated>2025-08-22T15:51:27.363Z</updated>
+    <updated>2025-08-23T03:23:49.251Z</updated>
     
-    <content type="html"><![CDATA[<p class='item-img' data-src='/img/header/五周年.png'><img src="/img/header/五周年.png" alt="五周年"></p><p>一名失业程序员打开了网约车软件开始接单，这是他的大脑发生的变化。</p><span id="more"></span><p>你是一名在35岁失业的程序员，你听取专家的建议决定用家里闲置的私家车去跑网约车。在你按下接单按钮后，身体本能地开始思考其背后如何帮你找到附近的乘客，于是<del>专业的</del>素养促使你写下了这篇博客。</p><h2 id="先计算距离？"><a href="#先计算距离？" class="headerlink" title="先计算距离？"></a>先计算距离？</h2><blockquote><p>你想到，<del>今天中午吃的炒鸡里用了很多的青椒</del>，于是要找到附近的乘客，<code>附近</code>或许是一个重要的条件，它描述的大概是……距离的远近程度？总而言之，你决定先想办法在计算机里表示出<code>距离</code>这个抽象的概念。</p><p>你又想到，要表示<code>距离</code>，需要先有一个参考系。幸运的是，人类已经制定了一套用来在地球上表示坐标的经纬度标准，也许这并不严谨，因为没有考虑到海拔位置的差异，<del>但是因为荠菜鲜肉馄饨很好吃，所以你决定先把地球裁剪铺开成一张纸，</del></p><p>总而言之，让我们建立一个理想模型，在这个模型里，司机和乘客的水平位置的差异小到可以忽略不计。</p></blockquote><h3 id="欧式距离，对吗？"><a href="#欧式距离，对吗？" class="headerlink" title="欧式距离，对吗？"></a>欧式距离，对吗？</h3><p>那么，让我们把球面近似地看成平面，司机的坐标设为<script type="math/tex">(x_1, y_1)</script>， 乘客的坐标设为<script type="math/tex">(x_2, y_2)</script>，接下来，利用欧氏距离的定义:</p><script type="math/tex; mode=display">d=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}</script><p>我们便可以轻松地计算出任意一个乘客和司机之间的距离。但是你突然意识到你是一名程序员，而不是一名数学家，多年的工作经验告诉你，在实际应用中，这些表示坐标的二元组通常是存放在一起的。为了精确地表示经纬度，你将使用<code>double</code>类型存储数据而非<code>float</code>类型。</p><div class="admonition expand-box adm-note fold"        style="--ex-color:green">        <div class="ex-header">            <i class='i-status'></i>            <i class='i-adm i-note'></i>            <span class="ex-title">为什么用double而不用float</span>        </div>        <div class="ex-content"><p>参考IEEE754标准下浮点数可以表示的精度</p></div>        </div><p>也就是说，表示一个坐标就需要用到16字节的数据，而你的软件拥有千万数量级的用户，也就是说，你需要大约160MB的空间来存储所有用户的坐标数据。</p><p>好吧，你也许会说这有什么优化的必要吗！？</p><p>但是你又想到，当司机按下接单按钮后，程序就需要遍历、计算、排序所有的坐标之间的距离。让我们假设取平方根的操作只看作一次浮点运算，每一条距离都需要经过6次浮点运算，也就是说，点击一次接单按钮就要处理<script type="math/tex">6\times10^7</script>次浮点运算！？紧接着还要处理排序、释放内存等操作，如果这是一道OI题的话，想必你已经喜提TLE了，所以咱不得不想办法提出一个更高效更节约存储空间的算法了。</p><h3 id="GeoHash原理的通俗解释"><a href="#GeoHash原理的通俗解释" class="headerlink" title="GeoHash原理的通俗解释"></a>GeoHash原理的通俗解释</h3><blockquote><p>8.22写到这里，先睡了（</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<p class='item-img' data-src='/img/header/五周年.png'><img src="/img/header/五周年.png" alt="五周年"></p><p>一名失业程序员打开了网约车软件开始接单，这是他的大脑发生的变化。</p><span id="more"></span><p>1t4，先删了</p>]]></content>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;/img/header/五周年.png&quot; alt=&quot;五周年&quot;&gt;&lt;/p&gt;
