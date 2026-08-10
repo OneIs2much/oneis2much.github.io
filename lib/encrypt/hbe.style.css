@@ -40,7 +40,7 @@
 	background: #f0f0f0;
 	color: #aaa;
 	font-weight: 400;
-	font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: var(--font-body);
 }
 
 .hbe-input-field:focus {

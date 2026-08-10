@@ -1,18 +1,5 @@
-"use strict";
-function BgmControl() {
-    const bgm = document.getElementById('bgm');
-    const control = document.getElementById("bgm-control");
-    if (bgm.paused) {
-        bgm.play();
-        control.setAttribute("fill", "#18d1ff");
-        control.style.transform = "scaleY(1)";
-    }
-    else {
-        bgm.pause();
-        control.setAttribute("fill", "currentColor");
-        control.style.transform = "scaleY(.5)";
-    }
-}
+/// <reference path="enviroment.d.ts" />
+'use strict';
 function getElement(string, item = document.documentElement) {
     let tmp = item.querySelector(string);
     if (tmp === null) {
@@ -83,16 +70,38 @@ class Code {
         item.outerHTML = '<div class="highlight mermaid">' + Amermaid.innerText + '</div>';
     };
     resetName = (str) => {
-        if (str == 'plaintext') {
-            return 'TEXT';
-        }
-        if (str == 'cs') {
-            return 'C#';
-        }
-        if (str == 'cpp') {
-            return 'C++';
-        }
-        return str.toUpperCase();
+        const languageNames = {
+            plaintext: 'Text',
+            text: 'Text',
+            cs: 'C#',
+            csharp: 'C#',
+            cpp: 'C++',
+            javascript: 'JavaScript',
+            js: 'JavaScript',
+            typescript: 'TypeScript',
+            ts: 'TypeScript',
+            jsx: 'JSX',
+            tsx: 'TSX',
+            html: 'HTML',
+            xml: 'XML',
+            css: 'CSS',
+            json: 'JSON',
+            yaml: 'YAML',
+            sql: 'SQL',
+            php: 'PHP',
+            markdown: 'Markdown',
+            md: 'Markdown',
+            bash: 'Bash',
+            shell: 'Shell',
+            powershell: 'PowerShell',
+            python: 'Python',
+            java: 'Java',
+            go: 'Go',
+            rust: 'Rust',
+            vue: 'Vue'
+        };
+        const normalized = str.toLowerCase();
+        return languageNames[normalized] || normalized[0].toUpperCase() + normalized.slice(1);
     };
     doAsCode = (item) => {
         const code_fold = page_config.code_fold || config.code_fold || -1;
@@ -119,8 +128,7 @@ class Code {
     paintMermaid = () => {
         if (typeof (mermaid) === 'undefined')
             return;
-        mermaid.initialize(document.documentElement.getAttribute('theme-mode') === 'dark' ?
-            { theme: 'dark' } : { theme: 'default' });
+        mermaid.initialize({ theme: 'dark' });
         if (typeof (mermaid.run) !== 'undefined') {
             mermaid.run({ querySelector: '.mermaid' });
         }
@@ -172,118 +180,39 @@ class Code {
     }
 }
 let code = new Code();
-class dust {
-    x;
-    y;
-    vx = Math.random() * 1 + 1;
-    vy = Math.random() * 1 + 0.01;
-    shadowBlur = Math.random() * 3;
-    shadowX = (Math.random() * 2) - 1;
-    shadowY = (Math.random() * 2) - 1;
-    radiusX = Math.random() * 1.5 + 0.5;
-    radiusY = this.radiusX * (Math.random() * (1.3 - 0.3) + 0.3);
-    rotation = Math.PI * Math.floor(Math.random() * 2);
-    constructor(x = 50, y = 50) {
-        this.x = x;
-        this.y = y;
+class Pair {
+    comment;
+    button;
+    constructor(first, second) {
+        this.comment = first;
+        this.button = second;
     }
 }
-class canvasDust {
-    canvas;
-    ctx;
-    color = '#fff';
-    width = 300;
-    height = 300;
-    dustQuantity = 50;
-    dustArr = [];
-    inStop = false;
-    constructor(canvasID) {
-        const canvas = getElement(canvasID);
-        this.canvas = canvas;
-        this.ctx = this.canvas.getContext('2d');
-        this.build();
-        window.addEventListener('resize', this.resize);
-    }
-    build = () => {
-        this.resize();
-        if (this.ctx) {
-            const point = canvasDust.getPoint(this.dustQuantity);
-            for (let i of point) {
-                const dustObj = new dust(i[0], i[1]);
-                this.buildDust(dustObj);
-                this.dustArr.push(dustObj);
-            }
-            requestAnimationFrame(this.paint);
-        }
-    };
-    paint = () => {
-        if (this.inStop) {
+class Selectors {
+    elements = [];
+    nowActive;
+    changeTo = (item) => {
+        if (item === this.nowActive) {
             return;
         }
-        const dustArr = this.dustArr;
-        for (let i of dustArr) {
-            this.ctx.clearRect(i.x - 6, i.y - 6, 12, 12);
-            if (i.x < -5 || i.y < -5) {
-                const x = this.width;
-                const y = Math.floor(Math.random() * window.innerHeight);
-                i.x = x;
-                i.y = y;
-            }
-            else {
-                i.x -= i.vx;
-                i.y -= i.vy;
-            }
+        this.nowActive.comment.style.display = 'none';
+        this.nowActive.button.classList.remove('active');
+        item.comment.style.display = '';
+        item.button.classList.add('active');
+        this.nowActive = item;
+    };
+    constructor(elements = [], active = 0) {
+        this.elements = elements;
+        this.nowActive = this.elements[active];
+        this.elements.forEach((item) => item.comment.style.display = 'none');
+        this.nowActive = this.elements[0];
+        for (let i of this.elements) {
+            i.button.addEventListener('click', () => this.changeTo(i));
         }
-        for (let i of dustArr) {
-            this.buildDust(i);
-        }
-        requestAnimationFrame(this.paint);
-    };
-    buildDust = (dust) => {
-        const ctx = this.ctx;
-        ctx.beginPath();
-        ctx.shadowBlur = dust.shadowBlur;
-        ctx.shadowOffsetX = dust.shadowX;
-        ctx.shadowOffsetY = dust.shadowY;
-        ctx.ellipse(dust.x, dust.y, dust.radiusX, dust.radiusY, dust.rotation, 0, Math.PI * 2);
-        ctx.closePath();
-        ctx.fill();
-    };
-    resize = () => {
-        const canvas = this.canvas;
-        const width = window.innerWidth;
-        const height = window.innerHeight;
-        this.width = width;
-        this.height = height;
-        this.dustQuantity = Math.floor((width + height) / 38);
-        canvas.width = width;
-        canvas.height = height;
-        this.ctx.shadowColor =
-            this.ctx.fillStyle = this.color;
-    };
-    static getPoint = (number = 1) => {
-        let point = [];
-        for (let i = 0; i < number; ++i) {
-            const x = Math.floor(Math.random() * window.innerWidth);
-            const y = Math.floor(Math.random() * window.innerHeight);
-            point.push([x, y]);
-        }
-        return point;
-    };
-    stop = () => {
-        this.inStop = true;
-    };
-    play = () => {
-        if (this.inStop === true) {
-            this.inStop = false;
-            requestAnimationFrame(this.paint);
-        }
-    };
+        this.nowActive.comment.style.display = '';
+        this.nowActive.button.classList.add('active');
+    }
 }
-try {
-    var canvasDusts = new canvasDust('#canvas-dust');
-}
-catch (e) { }
 class GiscusManager {
     iframe = null;
     messageHandlers = [];
@@ -357,7 +286,7 @@ class GiscusManager {
     syncTheme(theme) {
         return this.sendMessage({
             setConfig: {
-                theme: this.getGiscusTheme(theme || document.documentElement.getAttribute('theme-mode'))
+                theme: this.getGiscusTheme(theme || 'dark')
             }
         });
     }
@@ -425,7 +354,7 @@ class GiscusManager {
                 'data-emit-metadata': settings.emitMetadata,
                 'data-input-position': settings.inputPosition,
                 'data-lang': settings.lang,
-                'data-theme': this.getGiscusTheme(document.documentElement.getAttribute('theme-mode')),
+                'data-theme': this.getGiscusTheme('dark'),
                 'crossorigin': settings.crossorigin || 'anonymous'
             };
             Object.entries(attributes).forEach(([key, value]) => {
@@ -459,106 +388,6 @@ let giscusManager;
 if (typeof window !== 'undefined') {
     giscusManager = new GiscusManager();
     window.giscusManager = giscusManager;
-}
-class ColorMode {
-    html = document.documentElement;
-    dark = this.html.getAttribute('theme-mode') === 'dark';
-    inChanging = false;
-    btn = getElement('#color-mode');
-    syncGiscusTheme = () => {
-        if (typeof giscusManager !== 'undefined' && giscusManager.isLoaded()) {
-            giscusManager.syncTheme();
-        }
-    };
-    change = () => {
-        this.inChanging = true;
-        let background = document.createElement('div');
-        background.style.transition = '1.5s';
-        background.innerHTML =
-            `<div style='background: var(--${this.dark ? 'dark' : 'light'}-background);
-        height: 100vh; width: 100vw;
-        position: fixed; left: 0; top: 0; z-index: -99999;
-        background-attachment: fixed;
-        background-position: 50% 0;
-        background-repeat: no-repeat;
-        background-size: cover;'></div>`;
-        document.body.insertBefore(background, document.body.firstChild);
-        this.btn.style.pointerEvents = 'none';
-        setTimeout(() => {
-            if (canvasDusts)
-                canvasDusts.stop();
-            if (this.dark) {
-                this.html.setAttribute('theme-mode', 'light');
-                this.dark = false;
-                window.localStorage['theme-mode'] = 'light';
-            }
-            else {
-                this.html.setAttribute('theme-mode', 'dark');
-                this.dark = true;
-                window.localStorage['theme-mode'] = 'dark';
-            }
-            background.style.opacity = '0';
-            code.resetMermaid();
-            this.syncGiscusTheme();
-        });
-        setTimeout(() => {
-            document.body.removeChild(background);
-            if (canvasDusts)
-                canvasDusts.play();
-        }, 1500);
-        setTimeout(() => {
-            this.btn.style.pointerEvents = '';
-            this.inChanging = false;
-        }, 1000);
-    };
-    constructor() {
-        document.addEventListener('keypress', (ev) => {
-            if (this.inChanging) {
-                return;
-            }
-            if (ev.key === 'c' && ev.target &&
-                !['INPUT', 'TEXTAREA'].includes(ev.target.tagName)) {
-                this.change();
-            }
-        });
-    }
-}
-try {
-    var colorMode = new ColorMode();
-}
-catch (e) { }
-class Pair {
-    comment;
-    button;
-    constructor(first, second) {
-        this.comment = first;
-        this.button = second;
-    }
-}
-class Selectors {
-    elements = [];
-    nowActive;
-    changeTo = (item) => {
-        if (item === this.nowActive) {
-            return;
-        }
-        this.nowActive.comment.style.display = 'none';
-        this.nowActive.button.classList.remove('active');
-        item.comment.style.display = '';
-        item.button.classList.add('active');
-        this.nowActive = item;
-    };
-    constructor(elements = [], active = 0) {
-        this.elements = elements;
-        this.nowActive = this.elements[active];
-        this.elements.forEach((item) => item.comment.style.display = 'none');
-        this.nowActive = this.elements[0];
-        for (let i of this.elements) {
-            i.button.addEventListener('click', () => this.changeTo(i));
-        }
-        this.nowActive.comment.style.display = '';
-        this.nowActive.button.classList.add('active');
-    }
 }
 class Comments {
     search = ["valine", "gitalk", "waline", "artalk", "utterances", "giscus"];
@@ -601,15 +430,35 @@ class Comments {
 }
 new Comments();
 class Cursor {
-    now = new MouseEvent('');
-    first = true;
-    last = 0;
-    moveIng = false;
     fadeIng = false;
-    nowX = 0;
-    nowY = 0;
-    outer;
+    crosshair;
+    dot;
+    axisX;
+    axisY;
+    targeter;
     effecter;
+    desktopCursorMedia = window.matchMedia('(min-width: 769px)');
+    activeTarget = null;
+    activeFrozen = [];
+    restStyles = new WeakMap();
+    frozenProperties = [
+        'color',
+        'background-color',
+        'background-image',
+        'border-top-color',
+        'border-right-color',
+        'border-bottom-color',
+        'border-left-color',
+        'box-shadow',
+        'filter',
+        'opacity',
+        'transform',
+        'line-height',
+        'margin-left',
+        'margin-right',
+        'text-decoration-color',
+        '--card-border'
+    ];
     attention = `a,input,button,textarea,
     .navBtnIcon,
     #post-content img,
@@ -618,92 +467,183 @@ class Cursor {
     .wl-sort>li,
     #valine .vicon,#valine .vat,
     .lg-container img,.clickable`;
-    set = (X = this.nowX, Y = this.nowY) => {
-        this.outer.transform =
-            `translate(calc(${X.toFixed(2)}px - 50%),
-                  calc(${Y.toFixed(2)}px - 50%))`;
+    syncNativeCursor = () => {
+        document.documentElement.classList.toggle('custom-cursor-active', this.desktopCursorMedia.matches);
     };
-    move = (timestamp) => {
-        if (this.now !== undefined) {
-            let delX = this.now.x - this.nowX, delY = this.now.y - this.nowY;
-            this.nowX += delX * Math.min(0.025 * (timestamp - this.last), 1);
-            this.nowY += delY * Math.min(0.025 * (timestamp - this.last), 1);
-            this.set();
-            this.last = timestamp;
-            if (Math.abs(delX) > 0.1 || Math.abs(delY) > 0.1) {
-                window.requestAnimationFrame(this.move);
-            }
-            else {
-                this.set(this.now.x, this.now.y);
-                this.moveIng = false;
-            }
-        }
-    };
-    reset = (mouse) => {
-        this.outer.top = '0';
-        this.outer.left = '0';
-        if (!this.moveIng) {
-            this.moveIng = true;
-            window.requestAnimationFrame(this.move);
-        }
-        this.now = mouse;
-        if (this.first) {
-            this.first = false;
-            this.nowX = this.now.x;
-            this.nowY = this.now.y;
-            this.set();
-        }
+    reset = (pointer) => {
+        const x = `${pointer.clientX}px`;
+        const y = `${pointer.clientY}px`;
+        this.dot.transform = `translate3d(calc(${x} - 50%), calc(${y} - 50%), 0)`;
+        this.axisX.transform = `translate3d(0, ${y}, 0)`;
+        this.axisY.transform = `translate3d(${x}, 0, 0)`;
+        if (this.activeTarget === null)
+            this.crosshair.opacity = '1';
     };
     Aeffect = (mouse) => {
-        if (this.fadeIng == false) {
-            this.fadeIng = true;
-            this.effecter.left = String(mouse.x) + 'px';
-            this.effecter.top = String(mouse.y) + 'px';
-            this.effecter.transition =
-                'transform .5s cubic-bezier(0.22, 0.61, 0.21, 1)\
-        ,opacity .5s cubic-bezier(0.22, 0.61, 0.21, 1)';
-            this.effecter.transform = 'translate(-50%, -50%) scale(1)';
-            this.effecter.opacity = '0';
-            setTimeout(() => {
-                this.fadeIng = false;
-                this.effecter.transition = '';
-                this.effecter.transform = 'translate(-50%, -50%) scale(0)';
-                this.effecter.opacity = '1';
-            }, 500);
-        }
+        if (this.activeTarget !== null || this.fadeIng)
+            return;
+        this.fadeIng = true;
+        this.effecter.left = String(mouse.x) + 'px';
+        this.effecter.top = String(mouse.y) + 'px';
+        this.effecter.transition =
+            'transform .5s cubic-bezier(0.22, 0.61, 0.21, 1)\
+      ,opacity .5s cubic-bezier(0.22, 0.61, 0.21, 1)';
+        this.effecter.transform = 'translate(-50%, -50%) scale(1)';
+        this.effecter.opacity = '0';
+        setTimeout(() => {
+            this.fadeIng = false;
+            this.effecter.transition = '';
+            this.effecter.transform = 'translate(-50%, -50%) scale(0)';
+            this.effecter.opacity = '1';
+        }, 500);
     };
-    hold = () => {
-        this.outer.height = '24px';
-        this.outer.width = '24px';
-        this.outer.background = "var(--theme-cursor-bg)";
+    snapshotElement = (element) => {
+        if (this.restStyles.has(element))
+            return;
+        const computed = window.getComputedStyle(element);
+        const rest = new Map();
+        this.frozenProperties.forEach(property => {
+            rest.set(property, computed.getPropertyValue(property));
+        });
+        this.restStyles.set(element, rest);
     };
-    relax = () => {
-        this.outer.height = '36px';
-        this.outer.width = '36px';
-        this.outer.background = "unset";
+    snapshotTarget = (target) => {
+        this.snapshotElement(target);
+        target.querySelectorAll('*').forEach(this.snapshotElement);
     };
-    pushHolder = () => {
-        document.querySelectorAll(this.attention).forEach(item => {
-            if (!item.classList.contains('is--active')) {
-                item.addEventListener('mouseover', this.hold, { passive: true });
-                item.addEventListener('mouseout', this.relax, { passive: true });
-            }
+    snapshotTargets = () => {
+        document.querySelectorAll(this.attention).forEach(this.snapshotTarget);
+    };
+    freezeHover = (target) => {
+        this.snapshotTarget(target);
+        const elements = [target, ...target.querySelectorAll('*')];
+        this.activeFrozen = elements.map(element => ({
+            element,
+            inlineStyle: element.getAttribute('style')
+        }));
+        elements.forEach(element => {
+            const rest = this.restStyles.get(element);
+            rest?.forEach((value, property) => {
+                element.style.setProperty(property, value, 'important');
+            });
+            element.style.setProperty('transition', 'none', 'important');
+            element.style.setProperty('animation', 'none', 'important');
         });
     };
+    restoreHover = () => {
+        this.activeFrozen.forEach(({ element, inlineStyle }) => {
+            if (inlineStyle === null) {
+                element.removeAttribute('style');
+            }
+            else {
+                element.setAttribute('style', inlineStyle);
+            }
+        });
+        this.activeFrozen = [];
+    };
+    syncTarget = () => {
+        if (!this.activeTarget?.isConnected) {
+            this.relax();
+            return;
+        }
+        const rect = this.activeTarget.getBoundingClientRect();
+        const padding = 7;
+        this.targeter.style.left = `${rect.left - padding}px`;
+        this.targeter.style.top = `${rect.top - padding}px`;
+        this.targeter.style.width = `${rect.width + padding * 2}px`;
+        this.targeter.style.height = `${rect.height + padding * 2}px`;
+    };
+    relax = () => {
+        this.restoreHover();
+        this.activeTarget?.classList.remove('cursor-hover-target');
+        this.activeTarget = null;
+        this.crosshair.opacity = '1';
+        this.targeter.classList.remove('is-active');
+    };
+    hold = (item) => {
+        if (this.activeTarget === item)
+            return;
+        if (this.activeTarget !== null)
+            this.relax();
+        this.activeTarget = item;
+        this.freezeHover(item);
+        item.classList.add('cursor-hover-target');
+        this.crosshair.opacity = '0';
+        this.targeter.classList.remove('is-active');
+        this.syncTarget();
+        this.targeter.getBoundingClientRect();
+        this.targeter.classList.add('is-active');
+    };
+    hoverIn = (event) => {
+        if (!(event.target instanceof Element))
+            return;
+        const item = event.target.closest(this.attention);
+        if (item !== null && !item.classList.contains('is--active')) {
+            this.hold(item);
+        }
+    };
+    hoverOut = (event) => {
+        if (this.activeTarget === null)
+            return;
+        if (event.relatedTarget instanceof Node &&
+            this.activeTarget.contains(event.relatedTarget))
+            return;
+        if (event.relatedTarget instanceof Element) {
+            const next = event.relatedTarget.closest(this.attention);
+            if (next !== null && !next.classList.contains('is--active')) {
+                this.hold(next);
+                return;
+            }
+        }
+        this.relax();
+    };
     constructor() {
-        let node = document.createElement('div');
+        const node = document.createElement('div');
         node.id = 'cursor-container';
-        node.innerHTML = `<div id="cursor-outer"></div><div id="cursor-effect"></div>`;
+        node.innerHTML = `<div id="cursor-crosshair">
+        <i id="cursor-dot"></i>
+        <i class="cursor-axis cursor-axis-x"></i>
+        <i class="cursor-axis cursor-axis-y"></i>
+      </div>
+      <div id="cursor-target">
+        <i class="cursor-target-corner"></i>
+        <i class="cursor-target-corner"></i>
+        <i class="cursor-target-corner"></i>
+        <i class="cursor-target-corner"></i>
+      </div>
+      <div id="cursor-effect"></div>`;
         document.body.appendChild(node);
-        this.outer = getElement('#cursor-outer', node).style;
-        this.outer.top = '-100%';
+        this.crosshair = getElement('#cursor-crosshair', node).style;
+        this.crosshair.opacity = '0';
+        this.dot = getElement('#cursor-dot', node).style;
+        this.axisX = getElement('.cursor-axis-x', node).style;
+        this.axisY = getElement('.cursor-axis-y', node).style;
+        this.targeter = getElement('#cursor-target', node);
         this.effecter = getElement('#cursor-effect', node).style;
         this.effecter.transform = 'translate(-50%, -50%) scale(0)';
         this.effecter.opacity = '1';
-        window.addEventListener('mousemove', this.reset, { passive: true });
+        this.syncNativeCursor();
+        this.snapshotTargets();
+        window.addEventListener('pointermove', this.reset, { passive: true });
+        if ('onpointerrawupdate' in window) {
+            window.addEventListener('pointerrawupdate', event => {
+                this.reset(event);
+            }, { passive: true });
+        }
         window.addEventListener('click', this.Aeffect, { passive: true });
-        this.pushHolder();
-        const observer = new MutationObserver(this.pushHolder);
+        document.addEventListener('mouseover', this.hoverIn, { passive: true });
+        document.addEventListener('mouseout', this.hoverOut, { passive: true });
+        document.addEventListener('mouseleave', this.relax, { passive: true });
+        window.addEventListener('scroll', this.syncTarget, { passive: true, capture: true });
+        window.addEventListener('resize', this.syncTarget, { passive: true });
+        window.addEventListener('blur', this.relax, { passive: true });
+        this.desktopCursorMedia.addEventListener('change', this.syncNativeCursor);
+        const observer = new MutationObserver(() => {
+            if (this.activeTarget !== null && !this.activeTarget.isConnected) {
+                this.relax();
+            }
+            this.snapshotTargets();
+        });
         observer.observe(document, { childList: true, subtree: true });
     }
 }
@@ -900,6 +840,70 @@ class Index {
     }
 }
 let indexs = new Index();
+class Music {
+    players = new WeakSet();
+    formatTime = (seconds) => {
+        if (!Number.isFinite(seconds) || seconds < 0)
+            return '--:--';
+        const minutes = Math.floor(seconds / 60);
+        const rest = Math.floor(seconds % 60).toString().padStart(2, '0');
+        return `${minutes}:${rest}`;
+    };
+    setupPlayer = (player) => {
+        if (this.players.has(player))
+            return;
+        this.players.add(player);
+        const audio = getElement('.music-audio', player);
+        const toggle = getElement('.music-toggle', player);
+        const current = getElement('.music-current', player);
+        const duration = getElement('.music-duration', player);
+        const progress = getElement('.music-progress-track', player);
+        const name = getElement('.music-name', player).textContent?.trim() || '歌曲';
+        const updateState = () => {
+            const playing = !audio.paused && !audio.ended;
+            player.classList.toggle('is-playing', playing);
+            toggle.setAttribute('aria-pressed', playing.toString());
+            toggle.setAttribute('aria-label', `${playing ? '暂停' : '播放'} ${name}`);
+        };
+        const updateProgress = () => {
+            const ratio = Number.isFinite(audio.duration) && audio.duration > 0
+                ? Math.min(Math.max(audio.currentTime / audio.duration, 0), 1)
+                : 0;
+            player.style.setProperty('--music-progress', ratio.toString());
+            progress.setAttribute('aria-valuenow', Math.round(ratio * 100).toString());
+            current.textContent = this.formatTime(audio.currentTime);
+            duration.textContent = this.formatTime(audio.duration);
+        };
+        toggle.addEventListener('click', async () => {
+            if (audio.paused || audio.ended) {
+                try {
+                    await audio.play();
+                }
+                catch { }
+            }
+            else {
+                audio.pause();
+            }
+        });
+        audio.addEventListener('play', updateState);
+        audio.addEventListener('pause', updateState);
+        audio.addEventListener('ended', updateState);
+        audio.addEventListener('timeupdate', updateProgress);
+        audio.addEventListener('loadedmetadata', updateProgress);
+        audio.addEventListener('durationchange', updateProgress);
+        updateState();
+        updateProgress();
+    };
+    setHTML = () => {
+        document.querySelectorAll('[data-music-player]').forEach(this.setupPlayer);
+    };
+    constructor() {
+        this.setHTML();
+        document.addEventListener('pjax:success', this.setHTML);
+        window.addEventListener('hexo-blog-decrypt', this.setHTML);
+    }
+}
+let music = new Music();
 class Scroll {
     scrolling = 0;
     getingtop = false;
@@ -911,6 +915,12 @@ class Scroll {
     reallyUp = false;
     intop = false;
     totop;
+    updateProgress = () => {
+        const main = getElement('main');
+        const maxScroll = main.scrollHeight - main.clientHeight;
+        const progress = maxScroll > 0 ? main.scrollTop / maxScroll : 0;
+        document.documentElement.style.setProperty('--scroll-progress', Math.min(Math.max(progress, 0), 1).toString());
+    };
     scrolltop = () => {
         getElement('main').scroll({ top: 0, left: 0, behavior: 'smooth' });
         this.totop.style.opacity = '0';
@@ -1071,6 +1081,9 @@ class Scroll {
         }
     };
     constructor() {
+        getElement('main').addEventListener('scroll', this.updateProgress, { passive: true });
+        window.addEventListener('resize', this.updateProgress);
+        document.addEventListener('pjax:success', this.updateProgress);
         document.addEventListener('pjax:success', this.setHTML);
         document.addEventListener('touchstart', this.startTouch);
         document.addEventListener('touchmove', this.checkTouchMove);
@@ -1089,6 +1102,7 @@ class Scroll {
             }
         });
         this.setHTML();
+        this.updateProgress();
         this.totop = document.querySelector('#to-top');
     }
 }

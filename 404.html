@@ -5,10 +5,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>エラー発生。</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/source-sans-3@5.3.0/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/noto-sans-sc@5.3.0/index.css">
   <style>
     @font-face {
-      font-family: 'JetBrains Mono';
-      src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+      font-family: 'Fira Code';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: local('Fira Code'), url('https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/woff2/FiraCode-Regular.woff2') format('woff2');
     }
 
     html,
@@ -18,6 +24,7 @@
 
     body {
       margin: 0;
+      font-family: 'Source Sans 3 Variable', 'Noto Sans SC Variable', 'Source Han Sans SC', 'Microsoft YaHei', sans-serif;
       color: #FFF;
       background-color: #141516;
       background-position: 50% 50%;
@@ -62,7 +69,9 @@
 
     h2 {
       font-size: 32px;
-      font-family: "JetBrains Mono";
+      font-family: 'Fira Code', 'Noto Sans SC Variable', monospace;
+      font-variant-ligatures: contextual;
+      font-feature-settings: 'calt' 1, 'liga' 1;
     }
 
     @media (max-width: 768px) {
