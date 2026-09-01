@@ -467,6 +467,27 @@ class Cursor {
     .wl-sort>li,
     #valine .vicon,#valine .vat,
     .lg-container img,.clickable`;
+    boundIframes = new WeakSet();
+    overFrame = false;
+    // Cross-origin iframes (giscus) swallow pointer events, so the JS cursor
+    // freezes at the boundary and the native cursor would show inside.
+    // Hide the crosshair while over such frames; the frame's own theme CSS
+    // renders the same crosshair cursor instead.
+    bindGiscusFrame = (iframe) => {
+        if (this.boundIframes.has(iframe))
+            return;
+        this.boundIframes.add(iframe);
+        iframe.addEventListener('mouseenter', () => {
+            this.overFrame = true;
+            if (this.activeTarget === null)
+                this.crosshair.opacity = '0';
+        });
+        iframe.addEventListener('mouseleave', () => {
+            this.overFrame = false;
+            if (this.activeTarget === null)
+                this.crosshair.opacity = '1';
+        });
+    };
     syncNativeCursor = () => {
         document.documentElement.classList.toggle('custom-cursor-active', this.desktopCursorMedia.matches);
     };
@@ -476,7 +497,12 @@ class Cursor {
         this.dot.transform = `translate3d(calc(${x} - 50%), calc(${y} - 50%), 0)`;
         this.axisX.transform = `translate3d(0, ${y}, 0)`;
         this.axisY.transform = `translate3d(${x}, 0, 0)`;
-        if (this.activeTarget === null)
+        if (this.overFrame) {
+            const el = document.elementFromPoint(pointer.clientX, pointer.clientY);
+            if (!(el instanceof HTMLIFrameElement))
+                this.overFrame = false;
+        }
+        if (this.activeTarget === null && !this.overFrame)
             this.crosshair.opacity = '1';
     };
     Aeffect = (mouse) => {
@@ -557,7 +583,8 @@ class Cursor {
         this.restoreHover();
         this.activeTarget?.classList.remove('cursor-hover-target');
         this.activeTarget = null;
-        this.crosshair.opacity = '1';
+        if (!this.overFrame)
+            this.crosshair.opacity = '1';
         this.targeter.classList.remove('is-active');
     };
     hold = (item) => {
@@ -643,8 +670,10 @@ class Cursor {
                 this.relax();
             }
             this.snapshotTargets();
+            document.querySelectorAll('iframe.giscus-frame').forEach(this.bindGiscusFrame);
         });
         observer.observe(document, { childList: true, subtree: true });
+        document.querySelectorAll('iframe.giscus-frame').forEach(this.bindGiscusFrame);
     }
 }
 new Cursor();
