@@ -469,10 +469,8 @@ class Cursor {
     .lg-container img,.clickable`;
     boundIframes = new WeakSet();
     overFrame = false;
-    // Cross-origin iframes (giscus) swallow pointer events, so the JS cursor
-    // freezes at the boundary and the native cursor would show inside.
-    // Hide the crosshair while over such frames; the frame's own theme CSS
-    // renders the same crosshair cursor instead.
+    // Hide the JS crosshair while over cross-origin iframes (giscus):
+    // their native cursor is shown instead. Restore on leave.
     bindGiscusFrame = (iframe) => {
         if (this.boundIframes.has(iframe))
             return;
