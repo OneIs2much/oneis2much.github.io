@@ -1,0 +1,470 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>【DLC】宝宝你是一个很难学的数论啊啊啊啊啊啊啊 | OneIs2Much's Blog</title><meta name="description" content="量少管饿"><link rel="canonical" href="https://oneis2much.github.io/2026/08/28/explorations%E2%80%91in%E2%80%91number%E2%80%91theory/"><meta property="og:type" content="article"><meta property="og:title" content="【DLC】宝宝你是一个很难学的数论啊啊啊啊啊啊啊"><meta property="og:description" content="量少管饿"><meta property="og:url" content="https://oneis2much.github.io/2026/08/28/explorations%E2%80%91in%E2%80%91number%E2%80%91theory/"><meta property="og:site_name" content="OneIs2Much's Blog"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="【DLC】宝宝你是一个很难学的数论啊啊啊啊啊啊啊"><meta name="twitter:description" content="量少管饿"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous"><link rel="dns-prefetch" href="//cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/source-sans-3@5.3.0/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/source-sans-3@5.3.0/wght-italic.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/noto-serif@5.3.0/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/noto-serif@5.3.0/wght-italic.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/noto-sans-sc@5.3.0/index.css"><link rel="stylesheet" href="/css/arknights.css"><style>@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Fira Code'), url('https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/woff2/FiraCode-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Fira Code Medium'), url('https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/woff2/FiraCode-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Fira Code SemiBold'), url('https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/woff2/FiraCode-SemiBold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Fira Code Bold'), url('https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/woff2/FiraCode-Bold.woff2') format('woff2');
+}
+</style><meta name="page-config" content="{&quot;code_fold&quot;:null}"><script class="pjax-js">var config = {"root":"/","code_fold":15,"search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy"}};
+var page_config = {
+  code_fold: null
+};
+function updatePageConfig() {
+  var newPageConfig = document.querySelector('meta[name="page-config"]');
+  if (newPageConfig) {
+    page_config = JSON.parse(newPageConfig.content);
+  }
+}
+document.addEventListener('pjax:complete', function() { updatePageConfig(); });
+updatePageConfig();</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><script>MathJax.Hub.Config({
+ menuSettings: {
+   zoom: "None"
+ },
+ showMathMenu: false,
+ jax: ["input/TeX","output/CommonHTML"],
+ extensions: ["tex2jax.js"],
+ TeX: {
+   extensions: ["AMSmath.js","AMSsymbols.js"],
+   equationNumbers: {
+     autoNumber: "AMS"
+   }
+ },
+ tex2jax: {
+   inlineMath: [["\\(", "\\)"]],
+   displayMath: [["\\[", "\\]"]]
+ }
+});</script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><style>:root {
+ --theme-encrypt-confirm: 'confirm'
+}</style><script defer src="/js/arknights.js"></script><script defer src="/js/search.js"></script><script defer src="https://vercount.one/js"></script><script defer type="module">import mermaid from '//unpkg.com/mermaid@10.5.0/dist/mermaid.esm.mjs';
+window.mermaid = mermaid;
+code.paintMermaid();
+</script><script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><script>MathJax.Hub.Config({
+  menuSettings: {
+    zoom: "None"
+  },
+  showMathMenu: false,
+  jax: ["input/TeX","output/CommonHTML"],
+  extensions: ["tex2jax.js"],
+  TeX: {
+    extensions: ["AMSmath.js","AMSsymbols.js"],
+    equationNumbers: {
+      autoNumber: "AMS"
+    }
+  },
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]]
+  }
+});
+</script><script async src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script async src="/lib/encrypt/hbe.js"></script><script async src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax','.vercount','meta[name=page-config]'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);document.addEventListener('pjax:success', _ => {
+ const script = document.createElement('script');
+ script.src = 'https://vercount.one/js';
+ document.head.appendChild(script);
+});reset()})</script><script class="pjax-js">reset= () => {MathJax.Hub.Queue(["Typeset", MathJax.Hub]);document.querySelector('.lg-container')?.remove()
+const postBg = document.querySelector('#post-bg');
+if (postBg) lightGallery(postBg, {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script class="pjax-js">window.giscusSettings = {
+ repo: 'OneIs2much/blog-gitalk',
+ repoId: 'R_kgDOPbyYKw',
+ category: 'General',
+ categoryId: 'DIC_kwDOPbyYK84DEnmo',
+ mapping: 'specific',
+ strict: '0',
+ reactionsEnabled: '1',
+ emitMetadata: '0',
+ inputPosition: 'top',
+ lang: 'zh-CN',
+ crossorigin: 'anonymous' , get term() { return decodeURIComponent(location.pathname) } , loading: 'lazy'};window.giscusThemeConfig = { theme: 'dark' };</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax','.vercount','meta[name=page-config]'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);document.addEventListener('pjax:success', _ => {
+ const script = document.createElement('script');
+ script.src = 'https://vercount.one/js';
+ document.head.appendChild(script);
+});reset()})</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/rss.xml" title="OneIs2Much's Blog" type="application/atom+xml">
+</head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li><li class="navItem"><a class="navBlock" href="/contact/"><span class="navItemTitle">Links</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>【DLC】宝宝你是一个很难学的数论啊啊啊啊啊啊啊</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2026-08-27T16:00:00.000Z" id="date"> 2026-08-28</time></div></span><br><span>Last Update: <div class="control"><time datetime="2026-09-03T12:24:24.946Z" id="updated"> 2026-09-03</time></div></span><br><span>Word Count: <div class="control">6.9k</div></span><br><span>Read Time: <div class="control">28 min</div></span><br><span id="vercount_container_page_pv">Page View: <span class="control" id="vercount_value_page_pv">loading...</span></span></div></div><hr><div id="post-content"><p>不知不觉时间已经来到了 8 月底，今天是浙江夏季的第三个台风过境的日子，也不知道这篇文章和大伙见面的时间会在什么时候了，希望能尽快吧。<span class="hide"><object><p>那你倒是写快点啊。</p></object></span></p>
+<p>附上和群友面基时留下的照片，超级好人，我哭死。二人一起去看了《龙餐馆》，看预告和网评时以为会是比较红色比较战狼的片子，看完了感觉是比较纯粹的反战片，没有在营销<strong>爱国情怀</strong>，还是很值得去看的！</p>
+<p class='item-img' data-src='/img/posts/explorations‑in‑number‑theory/纪念.jpg'><img decoding="async" loading="lazy" src="/img/posts/explorations‑in‑number‑theory/纪念.jpg" alt="纪念.jpg"></p>
+<p>那么，这篇文章的主要任务是写一些数论的基础知识，顺带解决<a href="https://oneis2much.github.io/2026/06/30/segment-tree-and-euler-function/">上篇文章</a>留下来的疑难杂症，作为本文的最后 BOSS，所以内容会相对较少，我会尽力让文章没那么晦涩难读，准备好的话就开始吧！</p>
+<h2 id="对象和运算"><a href="#对象和运算" class="headerlink" title="对象和运算"></a>对象和运算</h2><p>数论的研究对象还是有必要强调一下的，那就是整数，经过再三考虑，本文决定将关于整数的严谨定义省去，我们用下面的非常偷工减料的方式定义整数：</p>
+<div class="admonition expand-box adm-detail open"
+        >
+        <div class="ex-header">
+            <i class='i-status'></i>
+            
+            <span class="ex-title">Definition
+</span>
+        </div>
+        <div class="ex-content"><p>形如 <script type="math/tex">\cdots, -2, -1, 0, 1, 2, \cdots</script> 的数，我们称为<strong>整数</strong>。</p>
+</div>
+        </div>
+<h3 id="余数"><a href="#余数" class="headerlink" title="余数"></a>余数</h3><p>类似地，我们直接跳过整数之间关于<strong>加减乘</strong>运算的定义，相信接下来的内容不会因为缺失了严谨性导致读者朋友们理解困难🥰</p>
+<div class="admonition expand-box adm-detail open"
+        >
+        <div class="ex-header">
+            <i class='i-status'></i>
+            
+            <span class="ex-title">Definition
+</span>
+        </div>
+        <div class="ex-content"><p>对于可以写成</p>
+<script type="math/tex; mode=display">am + r = x\qquad 0\le r < m</script><p>的形式，我们称带余除法 <script type="math/tex">x</script> 除以 <script type="math/tex">m</script> 等于 <script type="math/tex">a</script>，余 <script type="math/tex">r</script>。若 <script type="math/tex">r = 0</script>，就称 <script type="math/tex">m</script> 整除 <script type="math/tex">x</script>，记作 <script type="math/tex">m \mid x</script>。</p>
+</div>
+        </div>
+<p>上面的式子中 <script type="math/tex">r</script> 便是<strong>余数</strong>，为了方便地表示 <script type="math/tex">r</script> 是 <script type="math/tex">x</script> 除以 <script type="math/tex">m</script> 情况下的<strong>余数</strong>，我们称 <script type="math/tex">x</script> 对 <script type="math/tex">m</script> <strong>取模</strong>为 <script type="math/tex">r</script>，写作 <script type="math/tex">x \bmod m = r</script>，这样，<script type="math/tex">m</script> 就可以称为<strong>取模</strong>时的<strong>模数</strong>。</p>
+<p>那么，为什么要叫作“模”呢？</p>
+<p>考据认为“模”来自于 <code>modulo</code> 的音译，<code>modulo</code> 可来自于高斯的《算术研究》（<em>Disquisitiones Arithmeticae</em>）中，全文使用拉丁语写作。原文为 <script type="math/tex">a \equiv b \textbf{ modulo } m</script>，<code>modus</code> 在拉丁语中是名词，代表尺度、度量、规格、循环单位；<code>modulus</code> 是 <code>modus</code> 的<strong>指小词</strong>，代表小度量单位、标尺；<code>modulo</code> 是 <code>modulus</code> 的<strong>夺格（ablative）</strong>，可以表达以……为尺度，即以 <script type="math/tex">m</script> 这个标尺去衡量、去做等价判断。回过头来，“模” 本义也可以有模具的意思，即标尺、范本等，所以模可以是一个很信达雅的翻译🥰</p>
+<div class="admonition expand-box adm-note open"
+        style="--ex-color:green">
+        <div class="ex-header">
+            <i class='i-status'></i>
+            <i class='i-adm i-note'></i>
+            <span class="ex-title">关于模运算
+</span>
+        </div>
+        <div class="ex-content"><p>对于所有标准版本的 <code>C/C++</code>，规定在整数除法中：</p>
+<ul>
+<li>当除数为 <code>0</code> 时，行为未定义；</li>
+<li>否则 <code>(a / b) * b + a % b</code> 的运算结果与 <code>a</code> 相等．</li>
+</ul>
+<p>也就是说，取模运算的结果取决于除法运算的结果，至于除法运算的结果如何规定，则是由编译器决定。从 <a target="_blank" rel="noopener" href="https://en.cppreference.com/w/c/language/operator_arithmetic">C99</a> 和 <a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/operator_arithmetic">C++11</a> 标准版本起，规定 <strong>商向零取整</strong>（舍弃小数部分），取模的结果就与被除数保持同样的正负性。以下断言保证为真：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c">assert(<span class="hljs-number">5</span> % <span class="hljs-number">3</span> == <span class="hljs-number">2</span>);<br>assert(<span class="hljs-number">5</span> % <span class="hljs-number">-3</span> == <span class="hljs-number">2</span>);<br>assert(<span class="hljs-number">-5</span> % <span class="hljs-number">3</span> == <span class="hljs-number">-2</span>);<br>assert(<span class="hljs-number">-5</span> % <span class="hljs-number">-3</span> == <span class="hljs-number">-2</span>);<br></code></pre></td></tr></table></figure>
+<p>因此在编程语言中，余数可能会是负数。但是在数论中，我们一般规定余数 <script type="math/tex">0 \le r < \left | b\right |</script>，下文同样会默认这一点。</p>
+</div>
+        </div>
+<p>当某个整数对一堆互质的整数取模的余数均为 <script type="math/tex">0</script> 时，还有一个有趣的性质：</p>
+<blockquote>
+<p>互质即最大公约数为 <script type="math/tex">1</script>，至于什么是最大公约数，请见<a href="#欧几里得">下文</a>。</p>
+</blockquote>
+<p>若 <script type="math/tex">n_1,n_2,\dots,n_k</script> 两两互质，<script type="math/tex">n_1\mid A,\ n_2\mid A,\ \dots,\ n_k\mid A</script>，则 <script type="math/tex">n_1n_2 \cdots n_k \mid A</script>，此处不作证明🥰</p>
+<h3 id="同余"><a href="#同余" class="headerlink" title="同余"></a>同余</h3><p>认真阅读本文的朋友们不难发现我们提前提到了 <script type="math/tex">a \equiv b \pmod m</script>，那么这个 <script type="math/tex">\equiv</script> 是什么意思呢？</p>
+<div class="admonition expand-box adm-detail open"
+        >
+        <div class="ex-header">
+            <i class='i-status'></i>
+            
+            <span class="ex-title">Definition
+</span>
+        </div>
+        <div class="ex-content"><p>设整数 <script type="math/tex">m\ne0</script>．若 <script type="math/tex">(a-b) \bmod m = 0</script>，称 <script type="math/tex">m</script> 为 <strong>模数</strong>（<strong>模</strong>），<script type="math/tex">a</script> 同余于 <script type="math/tex">b</script> 模 <script type="math/tex">m</script>。记作 <script type="math/tex">a\equiv b\pmod m</script>。</p>
+<p>否则，<script type="math/tex">a</script> 不同余于 <script type="math/tex">b</script> 模 <script type="math/tex">m</script>。记作 <script type="math/tex">a\not\equiv b\pmod m</script>。</p>
+<p>这样的等式，称为模 <script type="math/tex">m</script> 的同余式，简称 <strong>同余式</strong>。</p>
+</div>
+        </div>
+<p>简单来说，同余即 <strong>同一个剩余</strong>，<script type="math/tex">a</script> 和 <script type="math/tex">b</script> 同余就是在说用 <script type="math/tex">m</script> 这个标尺去衡量<script type="math/tex">a</script> 和 <script type="math/tex">b</script>，它们多余的部分是相同的。</p>
+<p>既然同余这个符号长得和等于号辣么像，那么它是否满足一些优秀的性质呢？答案是当然满足，它拥有自反性、对称性、传递性，而且支持做线性运算！</p>
+<ul>
+<li><script type="math/tex">a\equiv a\pmod m</script>.</li>
+<li>若 <script type="math/tex">a\equiv b\pmod m</script>，则 <script type="math/tex">b\equiv a\pmod m</script></li>
+<li>若 <script type="math/tex">a\equiv b\pmod m,b\equiv c\pmod m</script>，则 <script type="math/tex">a\equiv c\pmod m</script></li>
+<li>若 <script type="math/tex">a, b, c, d \in \mathbb{Z}, m \in \mathbb{N}^*, a \equiv b \pmod m,c \equiv d \pmod m</script>，则 <script type="math/tex">a \pm c \equiv b \pm d \pmod m</script> 且 <script type="math/tex">a \cdot c \equiv b \cdot d \pmod m</script></li>
+</ul>
+<p>除了上面的四条性质，本文的证明内容还需要用到一个特别的性质：若 <script type="math/tex">a \equiv b \pmod m</script>，<script type="math/tex">m \equiv 0 \pmod c</script>，则 <script type="math/tex">a\equiv b\pmod c</script>。</p>
+<p>这条性质要怎么证明呢？首先，从定义出发，<script type="math/tex">a \equiv b\pmod m</script> 就代表 <script type="math/tex">(a - b) \bmod m = 0</script>，就代表 <script type="math/tex">a - b = q \cdot m</script>，<script type="math/tex">q</script> 是整数。接下来，<script type="math/tex">m \equiv 0 \pmod c</script> 就代表 <script type="math/tex">m = k \cdot c</script>，<script type="math/tex">k</script> 是整数。</p>
+<p>将该式代入到 <script type="math/tex">a - b = q \cdot m</script> 中即可得到 <script type="math/tex">a - b = q \cdot k \cdot c</script>，即 <script type="math/tex">a - b = (qk) \cdot c</script>，所以 <script type="math/tex">a\equiv b\pmod c</script>。</p>
+<h3 id="模算术"><a href="#模算术" class="headerlink" title="模算术"></a>模算术</h3><p>模算术就是在某一模数下的各种整数运算，包括但不限于加减乘除，其中乘法就有在上篇文章中我们简单涉略的乘法逆元部分。模算术中的一些基本性质是这样的：</p>
+<ul>
+<li>加法：<script type="math/tex">(a + b) \bmod m = (a \bmod m + b \bmod m) \bmod m</script>，也可写成 <script type="math/tex">a + b \equiv a \bmod m + b \bmod m \pmod m</script></li>
+<li>乘法：<script type="math/tex">ab \bmod m = (a \bmod m)(b \bmod m) \bmod m</script>，也可写成 <script type="math/tex">ab \equiv (a \bmod m)(b \bmod m) \pmod m</script></li>
+</ul>
+<p>从以上性质可以推论出，对于一个拥有加减乘运算的复杂表达式，若结果需要对 <script type="math/tex">m</script> 取模，我们可以任意地在中间过程对 <script type="math/tex">m</script> 取模，只要保证最后会有一次取模运算，就不会影响结果。</p>
+<div class="admonition expand-box adm-note fold"
+        style="--ex-color:green">
+        <div class="ex-header">
+            <i class='i-status'></i>
+            <i class='i-adm i-note'></i>
+            <span class="ex-title">若表达式中有除法
+</span>
+        </div>
+        <div class="ex-content"><p>上述结论只针对加减乘运算有效，若表达式中有除法，前提是求出除数对 <script type="math/tex">m</script> 的逆元，若逆元存在，将除以 <script type="math/tex">x</script> 换成乘以 <script type="math/tex">x^{-1}</script> 即可。</p>
+</div>
+        </div>
+<p>在了解了这个基本性质以后我们就可以做很多事情了，还记得在小学的时候老师教了我一个快速判断一个数是不是 3 或者 9 的倍数的方式，那就是把这个数的每一位的数字相加后计算是不是 3 或者 9 的倍数！当时我还是把这个方式当作一个工具去使用，并没有纠结背后的原理，既然今天了解了这么多的数论知识了，那就试试证明一下这个工具吧！</p>
+<div class="admonition expand-box adm-detail open"
+        style="--ex-color:red">
+        <div class="ex-header">
+            <i class='i-status'></i>
+            
+            <span class="ex-title">Problem
+</span>
+        </div>
+        <div class="ex-content"><p>若十进制整数 <script type="math/tex">x</script> 的各位数字相加的结果是 <script type="math/tex">3</script> 的倍数，那么 <script type="math/tex">x</script> 就是 <script type="math/tex">3</script> 的倍数，否则不是。<br>若十进制整数 <script type="math/tex">x</script> 的各位数字相加的结果是 <script type="math/tex">9</script> 的倍数，那么 <script type="math/tex">x</script> 就是 <script type="math/tex">9</script> 的倍数，否则不是。</p>
+</div>
+        </div>
+<p>首先，我们将 <script type="math/tex">x</script> 按位分解，我们用 <script type="math/tex">i</script> 表示从低到高第几位，<script type="math/tex">a_i</script> 就是对应位上的数字，设 <script type="math/tex">x</script> 共有 <script type="math/tex">n</script> 位，那么 <script type="math/tex">x=\sum \limits_{i=0}^{n-1}a_i \times 10^{i}</script>。我们先证明第一条，令这个式子对 <script type="math/tex">3</script> 取模，即 <script type="math/tex">(\sum \limits_{i=0}^{n-1}a_i \times 10^{i}) \bmod 3</script>，这样我们就可以任意地在过程中对 <script type="math/tex">3</script> 取模而不影响结果。令 <script type="math/tex">(\sum \limits_{i=0}^{n-1}a_i \times 10^{i}) \bmod 3</script> 写成 <script type="math/tex">(\sum \limits_{i=0}^{n-1}a_i \times (10^{i} \bmod 3)) \bmod 3</script>。</p>
+<p>接下来，由于 <script type="math/tex">1</script> 对 <script type="math/tex">3</script> 取模结果为 <script type="math/tex">1</script>，<script type="math/tex">10</script> 对 <script type="math/tex">3</script> 取模结果也为 <script type="math/tex">1</script>。要求 <script type="math/tex">10^2</script> 对 <script type="math/tex">3</script> 取模，我们可以将其写成 <script type="math/tex">10 \times 10</script>，接下来就可以对其中间过程任意取模，其结果为 <script type="math/tex">1 \times 1</script>，最后对 <script type="math/tex">3</script> 取模结果为 <script type="math/tex">1</script>。然后，根据数学归纳法，<script type="math/tex">10^2, 10^3, \dots , 10^n</script> 对 <script type="math/tex">3</script> 取模结果都为 <script type="math/tex">1</script>。</p>
+<p>于是 <script type="math/tex">(\sum \limits_{i=0}^{n-1}a_i \times (10^{i} \bmod 3)) \bmod 3</script> 就变成了 <script type="math/tex">(\sum \limits_{i=0}^{n-1}a_i) \bmod 3</script>，这恰好就是将各位数字相加的形式，于是我们得出了十进制整数 <script type="math/tex">x</script> 的各位数字相加的结果是 <script type="math/tex">3</script> 的倍数和 <script type="math/tex">x</script> 是 <script type="math/tex">3</script> 的倍数是等价的结论。即 <script type="math/tex">\sum \limits_{i=0}^{n-1}a_i \equiv \sum \limits_{i=0}^{n-1}a_i \times 10^{i} \pmod 3</script>。</p>
+<p>同理，我们也可以证出 <script type="math/tex">\sum \limits_{i=0}^{n-1}a_i \equiv \sum \limits_{i=0}^{n-1}a_i \times 10^{i} \pmod 9</script>。</p>
+<p>顺带地，我们还可以快速地举出在其他进制下，求特定整数的倍数的方式。例如，在八进制下，若某数的各位数字相加结果为 <script type="math/tex">7</script> 的倍数，那么这个数就是 <script type="math/tex">7</script> 的倍数。</p>
+<h2 id="一元线性同余方程"><a href="#一元线性同余方程" class="headerlink" title="一元线性同余方程"></a>一元线性同余方程</h2><p>设 <script type="math/tex">a, b, m</script> 为整数，<script type="math/tex">x</script> 为未知数，那么，形如</p>
+<script type="math/tex; mode=display">ax\equiv b\pmod m</script><p>的方程称为 <strong>一元线性同余方程</strong>。</p>
+<h3 id="逆元"><a href="#逆元" class="headerlink" title="逆元"></a>逆元</h3><p>因为同余是可以做线性运算的，所以我们不难想到，要求解上面的线性同余方程，可以假设存在一个 <script type="math/tex">a^{-1}</script> 使 <script type="math/tex">a^{-1} \cdot a \equiv 1 \pmod m</script>。令方程两边同时乘以 <script type="math/tex">a^{-1}</script>，就可以得到方程的解：<script type="math/tex">x \equiv ba^{-1} \pmod m</script>。</p>
+<p>关于解的存在性和解的数量的证明，本文就不深入讨论了，毕竟本文主打一个轻量化。<span class="hide"><object><p>才不是因为懒。</p></object></span></p>
+<p>那么求解单个线性同余方程的难点就在于求逆元了，不难发现求逆元本身其实也是一个线性同余方程，即求 <script type="math/tex">ax' \equiv 1 \pmod m</script>。</p>
+<p>需要说明的是，逆元存在的 <strong>充要条件</strong> 是 <script type="math/tex">\gcd(a, m) = 1</script>，该结论的证明过于繁琐，本文会直接利用这个结论，下文若无特别说明，都会默认 <script type="math/tex">\gcd(a, m) = 1</script>。</p>
+<p>这个方程看上去似乎要简单很多，让我们试试求解吧。在正式开始前，我们还要先引入 <strong>欧几里得算法</strong>，欧几里得算法是一个求解 <strong>最大公约数</strong> 的算法，已了解的朋友们可以直接跳到<a href="#拓展欧几里得">拓展欧几里得</a>部分。</p>
+<h3 id="欧几里得"><a href="#欧几里得" class="headerlink" title="欧几里得"></a>欧几里得</h3><p>最大公约数即为 Greatest Common Divisor，缩写为 gcd。如果我们已知两个数 <script type="math/tex">a</script> 和 <script type="math/tex">b</script>，如何求出二者的 gcd 呢？</p>
+<p>不妨设 <script type="math/tex">a > b</script>，如果 <script type="math/tex">b</script> 是 <script type="math/tex">a</script> 的约数，那么 <script type="math/tex">b</script> 就是二者的最大公约数。所以下面讨论不能整除的情况，即设 <script type="math/tex">a = b \times k + r</script>，其中 <script type="math/tex">r < b</script>，即 <script type="math/tex">r = a \bmod b</script>。</p>
+<p>设 <script type="math/tex">d \mid a,~d \mid b</script>，即 <script type="math/tex">d</script> 是 <script type="math/tex">a</script> 和 <script type="math/tex">b</script> 的一个公约数。</p>
+<p>则 <script type="math/tex">r = a - b \times k</script>，<script type="math/tex">\frac{r}{d}=\frac{a}{d} - \frac{b}{d}k</script>。</p>
+<p>由右边的式子可知 <script type="math/tex">\frac{r}{d}</script> 是一个整数，即 <script type="math/tex">d</script> 是 <script type="math/tex">r</script> 的一个约数，而 <script type="math/tex">r = a \bmod b</script>。</p>
+<p>也就是说，对于 <script type="math/tex">a</script>、<script type="math/tex">b</script> 的公约数，它也会是 <script type="math/tex">b</script>、<script type="math/tex">a \bmod b</script> 的公约数。</p>
+<p>既然公约数都是相同的，那么最大公约数也肯定相同，所以我们得到了式子 <script type="math/tex">\gcd(a, b) = \gcd(b, r) = \gcd(b, a \bmod b)</script>。</p>
+<p>将 <script type="math/tex">\gcd(a, b) = \gcd(b, r)</script> 这个过程递归，<script type="math/tex">a</script> 会被赋值成一个小于 <script type="math/tex">a</script> 的数 <script type="math/tex">b</script>，<script type="math/tex">b</script> 会被赋值成一个小于 <script type="math/tex">b</script> 的数 <script type="math/tex">a \bmod b</script>，并且在下一轮的递归中，函数的第一个参数同样比第二个参数大。通过数学归纳法可以预见的是，每递归一层，函数的两个参数都严格小于上一层，那么递归的终点在哪里呢？</p>
+<p>让我们关注较小的第二个参数，这里统一用 <script type="math/tex">b_k</script> 表示递归第 <script type="math/tex">k</script> 轮的第二个参数。已知 <script type="math/tex">b_0>b_1>b_2>\dots \ge 0</script>，每一个 <script type="math/tex">b_k</script> 至少比前一个小 <script type="math/tex">1</script>，即至多递归 <script type="math/tex">b_0</script> 次，<script type="math/tex">b_{b_0}</script> 会等于 <script type="math/tex">0</script>。确定了递归的终点就好办很多了，由于 <script type="math/tex">0</script> 能整除任何数，所以对于 <script type="math/tex">b_n = 0</script>，<script type="math/tex">\gcd(a, b) = \gcd(b_{n - 1}, b_n) = \gcd(b_{n - 1}, 0) = b_{n - 1}</script>。</p>
+<p>那么我们也就得到了关于两个数的最大公约数的一个递归求法，这个算法就是 <strong>欧几里得算法</strong>。</p>
+<p>欧几里得的递归代码模板如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">gcd</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> </span>&#123;<br>  <span class="hljs-keyword">if</span> (b == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> a;<br>  <span class="hljs-keyword">return</span> <span class="hljs-built_in">gcd</span>(b, a % b);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>欧几里得的递推代码模板如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">gcd</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> </span>&#123;<br>  <span class="hljs-keyword">while</span> (b != <span class="hljs-number">0</span>) &#123;<br>    <span class="hljs-type">int</span> tmp = a;<br>    a = b;<br>    b = tmp % b;<br>  &#125;<br>  <span class="hljs-keyword">return</span> a;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<div class="admonition expand-box adm-note fold"
+        style="--ex-color:green">
+        <div class="ex-header">
+            <i class='i-status'></i>
+            <i class='i-adm i-note'></i>
+            <span class="ex-title">欧几里得算法的时间复杂度
+</span>
+        </div>
+        <div class="ex-content"><p>欧几里得算法的时间效率如何呢？是否真的会出现需要迭代 <script type="math/tex">b_{b_0}</script> 的情况？实际上这种情况非常少见，欧几里得的时间复杂度是 <script type="math/tex">O(\log⁡\max(a,b))</script>，并且当我们用欧几里得算法去求斐波那契数列相邻两项的最大公约数时，会让该算法达到最坏复杂度，具体证明留给感兴趣的朋友们🥰</p>
+</div>
+        </div>
+<h3 id="拓展欧几里得"><a href="#拓展欧几里得" class="headerlink" title="拓展欧几里得"></a>拓展欧几里得</h3><p>问题回到解决 <script type="math/tex">ax' \equiv 1 \pmod m</script> 上，有没有觉得这个同余符号很不顺眼呢？没关系，我们把它去掉就好，<script type="math/tex">ax' \equiv 1 \pmod m</script> 和 <script type="math/tex">ax' + my' = 1</script> 其实是等价的写法，其中，<script type="math/tex">y</script> 是整数。</p>
+<p>接下来，由于我们要求的是 <script type="math/tex">a</script> 的逆元，根据逆元存在的<a href="#逆元">充要条件</a> <script type="math/tex">\gcd(a, m) = 1</script>，我们可以直接改写该方程为 <script type="math/tex">ax' + my' = \gcd(a, m)</script>。为了更方便地读懂下文，我们还需要忘记 <script type="math/tex">\gcd(a, m) = 1</script> 这个已知的事实，只关注 <script type="math/tex">ax' + my' = \gcd(a, m)</script> 方程本身。</p>
+<p>这个方程要怎么解呢？唉，既然本节的标题是拓展欧几里得，那就试试和上一节的内容联动一下吧！有没有觉得这个 <script type="math/tex">\gcd(a, m)</script> 很欠揍？不如试试利用上一节的小结论 <script type="math/tex">\gcd(a, m) = \gcd(m, a \bmod m)</script> 吧！</p>
+<p>怎么利用呢？我们可以把方程 <script type="math/tex">ax' + my' = \gcd(a, m)</script> 写成</p>
+<script type="math/tex; mode=display">ax_1 + my_1 = \gcd(a, m) \tag{1}</script><p>我们要求的就是满足上面方程的一对 <script type="math/tex">(x_1, y_1)</script> 的解。接下来，我们再设一个新的方程</p>
+<script type="math/tex; mode=display">mx_2 + (a \bmod m)y_2 = \gcd(m, a \bmod m) \tag{2}</script><p>显然两个方程的右式是相等的，合并左式可以得到：</p>
+<script type="math/tex; mode=display">ax_1 + my_1 = mx_2 + (a \bmod m)y_2 \tag{3}</script><p>回顾模运算的定义，<script type="math/tex">a \bmod m</script> 实际上就是用 <script type="math/tex">m</script> 来分 <script type="math/tex">a</script> 时多出来的那一部分，假设 <script type="math/tex">a</script> 能分出来 <script type="math/tex">q</script> 份 <script type="math/tex">m</script>，即 <script type="math/tex">a = qm + a \bmod m</script>，那么 <script type="math/tex">a \bmod m</script> 就可以写成 <script type="math/tex">a - qm</script>，将其带入到 <script type="math/tex">(3)</script> 式可得：</p>
+<script type="math/tex; mode=display">ax_1 + my_1 = mx_2 + (a - qm)y_2 \tag{4}</script><p>接下来，展开：</p>
+<script type="math/tex; mode=display">ax_1 + my_1 = mx_2 + ay_2 - qmy_2 \tag{5}</script><p>移项：</p>
+<script type="math/tex; mode=display">ax_1 + my_1 = ay_2 + mx_2 - qmy_2 \tag{6}</script><p>合并：</p>
+<script type="math/tex; mode=display">ax_1 + my_1 = ay_2 + m(x_2 - qy_2) \tag{7}</script><p>为了更方便观察，我们将 <script type="math/tex">a, m</script> 的位置换一下：</p>
+<script type="math/tex; mode=display">x_1 \boldsymbol {a} + y_1 \boldsymbol {m} = y_2 \boldsymbol {a} + (x_2 - qy_2) \boldsymbol {m} \tag{8}</script><p>观察 <script type="math/tex">(8)</script> 式左右两边 <script type="math/tex">a, m</script> 的系数，不难得出：</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+x_1 = y_2\\
+y_1 = x_2 - qy_2
+\end{cases}</script><p>若我们知道 <script type="math/tex">x_2, y_2</script> 的值，就可以轻易地使用上式求出 <script type="math/tex">x_1, y_1</script>，所以问题就变成了求解方程 <script type="math/tex">mx_2 + (a \bmod m)y_2 = \gcd(m, a \bmod m)</script>，那要怎么解这个方程呢？唉~要不再试试继续设方程？</p>
+<p>后面的步骤就是不断地按照欧几里得算法的递归形式去设立方程了，不难发现，一直递归地去设立新方程，我们最终会来到 <script type="math/tex">\gcd</script> 函数中第二个参数为 <script type="math/tex">0</script> 的递归边界，到了这里我们就可以恢复先前遗忘的记忆了！由于 <script type="math/tex">\gcd(a, m) = 1</script>，所以当第二个参数为 <script type="math/tex">0</script> 时，要令 <script type="math/tex">\gcd</script> 为 <script type="math/tex">1</script>，函数的第一个参数只能为 <script type="math/tex">1</script>，所以方程的右式一定是：</p>
+<script type="math/tex; mode=display">\gcd(1, 0)</script><p>假设这是设立的第 <script type="math/tex">n</script> 个方程，该方程的形式就是：</p>
+<script type="math/tex; mode=display">1 \cdot x_n + 0 \cdot y_n = \gcd(1, 0) = 1 \tag{9}</script><p>取 <script type="math/tex">x_n = 1</script> 就可以得到这个方程的通解，为了后续计算的方便，我们可以取 <script type="math/tex">y_n = 0</script>，这同样是一组解，之后沿着递归栈一路向上还原出 <script type="math/tex">x_1</script>，<script type="math/tex">y_1</script> 即可。</p>
+<p>推导完成，算法实现方面，在欧几里得的过程中加入 <script type="math/tex">x</script>，<script type="math/tex">y</script> 即是拓展欧几里得：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 求 gcd(a, m)，并顺便求出 ax + my = gcd(a, m) 的一组解</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">exgcd</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> m, <span class="hljs-type">int</span> &amp;x, <span class="hljs-type">int</span> &amp;y)</span> </span>&#123;<br>  <span class="hljs-keyword">if</span> (m == <span class="hljs-number">0</span>) &#123;<br>    x = <span class="hljs-number">1</span>;<br>    y = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">return</span> a;<br>  &#125;<br>  <span class="hljs-type">int</span> _x, _y;            <span class="hljs-comment">// 下一层 (m, a % m) 的解</span><br>  <span class="hljs-type">int</span> g = <span class="hljs-built_in">exgcd</span>(m, a % m, _x, _y);<br>  x = _y;<br>  y = _x - a / m * _y;<br>  <span class="hljs-keyword">return</span> g;<br>&#125;<br></code></pre></td></tr></table></figure>
+<span class="hide"><object><p>拓展欧几里得算法的递推形式有些难以理解，这里我们就不涉及了。</p></object></span>
+<p>最后，怎么求线性同余方程呢？对于方程</p>
+<script type="math/tex; mode=display">ax\equiv b\pmod m</script><p>已知解的形式是 <script type="math/tex">x \equiv ba^{-1} \pmod m</script>，那么 <script type="math/tex">x = ba^{-1}</script> 必定是一个解（同余的自反性）。我们可以先使用拓展欧几里得求出 <script type="math/tex">a</script> 的逆元，然后计算 <script type="math/tex">ba^{-1}</script> 即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">solve</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b, <span class="hljs-type">int</span> m)</span> </span>&#123;<br>  <span class="hljs-type">int</span> inverse, y;<br>  <span class="hljs-built_in">exgcd</span>(a, m, inverse, y);<br>  <span class="hljs-keyword">return</span> b * inverse;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="中国剩余定理"><a href="#中国剩余定理" class="headerlink" title="中国剩余定理"></a>中国剩余定理</h2><div class="admonition expand-box adm-detail open"
+        >
+        <div class="ex-header">
+            <i class='i-status'></i>
+            
+            <span class="ex-title">Definition
+</span>
+        </div>
+        <div class="ex-content"><p>形如</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+a_1x \equiv b_1 \pmod {m_1} \\
+a_2x \equiv b_2 \pmod {m_2} \\
+\vdots \\
+a_kx \equiv b_k \pmod {m_k} \\
+\end{cases}</script><p>的方程组称为一元线性同余方程组。</p>
+</div>
+        </div>
+<h3 id="What"><a href="#What" class="headerlink" title="What"></a>What</h3><p>一元线性同余方程组的求解较为复杂，但是我们有方法可以求解出特别形式的一元线性同余方程组。</p>
+<p>被认为出现在南北朝时期的《孙子算经》中，有一道经典问题：</p>
+<div class="admonition expand-box adm-detail open"
+        style="--ex-color:red">
+        <div class="ex-header">
+            <i class='i-status'></i>
+            
+            <span class="ex-title">Problem
+</span>
+        </div>
+        <div class="ex-content"><p>有物不知其数，三三数之剩二，五五数之剩三，七七数之剩二，问物几何？</p>
+</div>
+        </div>
+<p>翻译成白话就是在问：一个数 <script type="math/tex">x</script> 模 <script type="math/tex">3</script> 剩 <script type="math/tex">2</script>，模 <script type="math/tex">5</script> 剩 <script type="math/tex">3</script>，模 <script type="math/tex">7</script> 剩 <script type="math/tex">2</script>，这个数是多少？</p>
+<p>让我们进一步翻译成现代的数学语言，这个问题实际上就是在求解线性同余方程组：</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+x \equiv 2 \pmod 3 \\
+x \equiv 3 \pmod 5 \\
+x \equiv 2 \pmod 7
+\end{cases}</script><p>在约 800 年后的宋朝，数学家秦九韶在《数学九章》给出了该类问题的通用解法，由于该解法从中国传入西方国家，因此被西方命名为 <strong>Chinese Remainder Theorem</strong>，缩写为 <strong>CRT</strong>，即 <strong>中国剩余定理</strong>。</p>
+<div class="admonition expand-box adm-detail open"
+        >
+        <div class="ex-header">
+            <i class='i-status'></i>
+            
+            <span class="ex-title">Definition
+</span>
+        </div>
+        <div class="ex-content"><p><strong>中国剩余定理</strong> 可以求解形如</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+x \equiv y_1 \pmod {m_1} \\
+x \equiv y_2 \pmod {m_2} \\
+  \vdots \\
+x \equiv y_k \pmod {m_k}
+\end{cases}</script><p>的一元线性同余方程组，其中 <script type="math/tex">m_1, m_2, \cdots, m_k</script> 需要两两互质。</p>
+</div>
+        </div>
+<p>那么该算法是如何求解的呢？明朝数学家程大位在《算法统宗》中给出了单个问题的解答口诀：</p>
+<blockquote>
+<p>三人同行七十希，五树梅花廿一支，七子团圆正半月，除百零五便得知。</p>
+</blockquote>
+<ul>
+<li><strong>三</strong> 人同行 <strong>七十</strong> 希，对应的即是第一个同余方程 <script type="math/tex">x \equiv 2 \pmod 3</script>，计算 <script type="math/tex">70 \times 2 = 140</script>。</li>
+<li><strong>五</strong> 树梅花 <strong>廿一</strong> 支，对应的即是第二个同余方程 <script type="math/tex">x \equiv 3 \pmod 5</script>，计算 <script type="math/tex">21 \times 3 = 63</script>。</li>
+<li><strong>七</strong> 子团圆 <strong>正半月</strong>，对应的即是第三个同余方程 <script type="math/tex">x \equiv 2 \pmod 7</script>，计算 <script type="math/tex">15 \times 2 = 30</script>。</li>
+</ul>
+<p>最后，<strong>除百零五</strong> 便得知，将三式相加对 <script type="math/tex">105</script> 取模，即可得到 <script type="math/tex">(140 + 63 + 30) \bmod 105 = 23</script>。</p>
+<p>CRT 的算法过程描述其实非常简单，首先需要计算所有模数的积 <script type="math/tex">m = \prod \limits_{i=1}^{k} m_i</script>，接下来对每个同余方程：</p>
+<ul>
+<li>计算 <script type="math/tex">n_i = \frac{m}{m_i}</script></li>
+<li>计算 <script type="math/tex">n_i</script> 在模 <script type="math/tex">m_i</script> 下的逆元 <script type="math/tex">n_i^{-1}</script></li>
+<li>计算 <script type="math/tex">q_i = n_in_i^{-1}</script>（结果不取模）</li>
+</ul>
+<p>最后，方程组在模 <script type="math/tex">m</script> 意义下的 <strong>唯一解</strong> 为：<script type="math/tex">x = \sum \limits_{i=1}^k y_iq_i \pmod m</script>。</p>
+<p>了解了流程我们就可以知道上节中 <script type="math/tex">70</script>、<script type="math/tex">21</script>、<script type="math/tex">15</script> 等数字是怎么来的了，当然，光了解还是不够，让我们来证明一下 CRT 试试吧~</p>
+<h3 id="How"><a href="#How" class="headerlink" title="How"></a>How</h3><p>我们要证明的是使用上面算法得出的 <script type="math/tex">x</script> 对于任意 <script type="math/tex">i = 1, 2, \cdots, k</script> 满足 <script type="math/tex">x \equiv y_i \pmod {m_i}</script>。</p>
+<p>当 <script type="math/tex">l \neq r</script> 时，有 <script type="math/tex">n_r = \frac{m}{m_r} = \frac{\prod \limits_{i=1}^{k} m_i}{m_r}</script>，<script type="math/tex">\frac{\prod \limits_{i=1}^{k} m_i}{m_r}</script> 中必定包含因子 <script type="math/tex">m_l</script>，所以 <script type="math/tex">n_r \bmod m_l = 0</script>，即 <script type="math/tex">n_r \equiv 0 \pmod {m_l}</script>。</p>
+<p>因为 <script type="math/tex">n_rn_r^{-1} \equiv n_rn_r^{-1} \pmod {m_l}</script>，所以 <script type="math/tex">q_r \equiv n_rn_r^{-1} \pmod {m_l}</script>。又因为 <script type="math/tex">n_r \equiv 0 \pmod {m_l}</script>，我们得到：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+q_r &\equiv 0 \times n_r^{-1} \pmod {m_l} \\
+&\equiv 0 \pmod {m_l} \\
+\end{aligned}</script><p>即：</p>
+<script type="math/tex; mode=display">q_r \equiv 0 \pmod {m_l}, l \neq r \tag{1}</script><p>同时，因为 <script type="math/tex">n_l^{-1}</script> 是 <script type="math/tex">n_l</script> 在模 <script type="math/tex">m_l</script> 下的逆元，所以有：</p>
+<script type="math/tex; mode=display">q_l = n_ln_l^{-1} \equiv n_ln_l^{-1} \pmod {m_l} \equiv 1 \pmod {m_l}</script><p>即：</p>
+<script type="math/tex; mode=display">q_l \equiv 1 \pmod {m_l} \tag{2}</script><p>接下来：</p>
+<script type="math/tex; mode=display">x = \sum \limits_{i=1}^k y_iq_i \pmod {m} \equiv \sum \limits_{i=1}^k y_iq_i \pmod {m}</script><p>由于 <script type="math/tex">m = \prod \limits_{i=1}^{k} m_i</script>，所以 <script type="math/tex">m</script> 以 <strong>任意</strong> 的 <script type="math/tex">m_i</script> 作为模数时，<strong>都</strong> 同余 <script type="math/tex">0</script>。利用 <strong>若 <script type="math/tex">a \equiv b \pmod m</script>，<script type="math/tex">m \equiv 0 \pmod c</script>，则 <script type="math/tex">a\equiv b\pmod c</script></strong> 的性质我们可以得出：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+x&\equiv \sum \limits_{i=1}^k y_iq_i \pmod {m}\\
+ &\equiv \sum \limits_{i=1}^k y_iq_i \pmod {m_i}
+\end{aligned}</script><p>其中 <script type="math/tex">m_i</script> 可任取。接下来：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+x&\equiv \sum \limits_{i=1}^k y_iq_i &\pmod {m_l} \quad & 取m_l作为模数\\
+ &\equiv y_1q_1 \bmod {m_l} + \cdots + y_kq_k \bmod {m_l} &\pmod {m_l} \quad & 展开，任意加入模运算\\
+ &\equiv y_lq_l \bmod {m_l} &\pmod {m_l} \quad & (1)式\\
+ &\equiv y_l &\pmod {m_l} \quad & (2)式
+\end{aligned}</script><p>即对于任意 <script type="math/tex">i=1,2,\cdots,k</script>，上面算法得到的 <script type="math/tex">x</script> 总是满足 <script type="math/tex">x\equiv y_i \pmod{m_i}</script>，故证明了该算法的正确性。</p>
+<p>接下来，假设上述方程组存在两个不同的解 <script type="math/tex">x_1</script> 和 <script type="math/tex">x_2</script>，因为 <script type="math/tex">x_1, x_2</script> 均是方程组的解，所以对每一个 <script type="math/tex">i</script> 都有：</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+x_1 \equiv y_i \pmod{m_i}\\
+x_2 \equiv y_i \pmod{m_i}
+\end{cases}</script><p>即对于任意的 <script type="math/tex">i</script> 都有 <script type="math/tex">x_1 \equiv x_2 \pmod {m_i}</script>，从我们对同余的定义出发，即 <script type="math/tex">(x_1 - x_2) \bmod m_i = 0</script>，也就是说 <script type="math/tex">m_i \mid (x_1 - x_2)</script>。</p>
+<p><a href="#余数">前文</a>提到若 <script type="math/tex">n_1,n_2,\dots,n_k</script> 两两互质，<script type="math/tex">n_1\mid A,\ n_2\mid A,\ \dots,\ n_k\mid A</script>，则 <script type="math/tex">n_1n_2 \cdots n_k \mid A</script>。幸运的是，CRT 适用的情景就是 <script type="math/tex">m_1, m_2, \cdots, m_k</script> 两两互质，所以 <script type="math/tex">m = m_1m_2 \cdots m_k \mid (x_1 - x_2)</script>，即 <script type="math/tex">x_1 \equiv x_2 \pmod m</script>，故证明了该算法的解是模 <script type="math/tex">m</script> 意义下的唯一解。</p>
+<p>CRT 的示例代码如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">CRT</span><span class="hljs-params">(<span class="hljs-type">int</span> k, <span class="hljs-type">int</span>* y, <span class="hljs-type">int</span>* m)</span> </span>&#123;<br>  <span class="hljs-type">int</span> M = <span class="hljs-number">1</span>, x = <span class="hljs-number">0</span>;<br><br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= k; i ++ ) M = M * m[i];<br><br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= k; i ++ ) &#123;<br>    <span class="hljs-type">int</span> m_ = M / m[i];<br>    <span class="hljs-type">int</span> m_inv_, t_y;<br><br>    <span class="hljs-built_in">exgcd</span>(m_, m[i], m_inv_, t_y);  <span class="hljs-comment">// m_inv_ * m_ mod m[i] = 1</span><br><br>    x += y[i] * m_ * m_inv;<br>  &#125;<br>  <span class="hljs-keyword">return</span> x % M;<br>&#125;<br></code></pre></td></tr></table></figure></p>
+<h2 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h2><p>欧拉函数 <script type="math/tex">\varphi(n)</script>，表示 从 1 到 <script type="math/tex">n</script> 的数中，和 <script type="math/tex">n</script> 互质的数的个数。在数论中，若函数 <script type="math/tex">f(n)</script> 满足 <script type="math/tex">f(1)=1</script>，且 <script type="math/tex">f(xy)=f(x)f(y)</script> 对任意互质的 <script type="math/tex">x, y \in\mathbb{N}^*</script> 都成立，则称 <script type="math/tex">f(n)</script> 是 <strong>积性函数</strong>，欧拉函数是一个的积性函数。</p>
+<p>如何证明欧拉函数是一个 <strong>积性函数</strong> 是上一篇文章没能处理好的一个问题，<span class="hide"><object><p>可以说这篇文章就是一个饺子醋啊。</p></object></span>那么废话不多说，首先，设 <script type="math/tex">x</script> 是 <script type="math/tex">[0, mn - 1]</script> 中的一个与 <script type="math/tex">mn</script> 互质的数，即：</p>
+<script type="math/tex; mode=display">x \in [0, mn - 1], \gcd(x, mn) = 1</script><p>设 <script type="math/tex">x \bmod m = a</script>，<script type="math/tex">x \bmod n = b</script>。不难得出 <script type="math/tex">a \in [0, m - 1], b \in [0, n - 1]</script>。</p>
+<p>对于 <script type="math/tex">x \bmod m = a</script>，设 <script type="math/tex">d = \gcd(x, m)</script>，根据最大公约数的定义可知 <script type="math/tex">d \mid x</script> 且 <script type="math/tex">d \mid m</script>。</p>
+<p>将 <script type="math/tex">d \mid m</script> 写成 <script type="math/tex">m = q \cdot d</script>，两边同乘 <script type="math/tex">n</script> 可得 <script type="math/tex">mn = qn \cdot d</script>，即 <script type="math/tex">d \mid mn</script>。于是 <script type="math/tex">d</script> 同时整除 <script type="math/tex">x</script> 与 <script type="math/tex">mn</script>，即 <script type="math/tex">d</script> 是 <script type="math/tex">x,mn</script> 的公约数。由先前的假设可知 <script type="math/tex">\gcd(x, mn) = 1</script>，因此 <script type="math/tex">d = 1</script>。所以：</p>
+<script type="math/tex; mode=display">\gcd(x, m) = d = 1</script><p>根据欧几里得的公式可知 <script type="math/tex">\gcd(x, m) = \gcd(m, x \bmod m)</script>，而 <script type="math/tex">x \bmod m = a</script>，所以 <script type="math/tex">\gcd(x, m) = \gcd(m, a) = \gcd(a, m) = 1</script>。</p>
+<p>即由 <script type="math/tex">[0, mn - 1]</script> 中的一个与 <script type="math/tex">mn</script> 互质的数 <script type="math/tex">x</script> 可以唯一确定一个数 <script type="math/tex">a = x \bmod m</script> 满足 <script type="math/tex">a \in [0, m - 1]</script> 且 <script type="math/tex">\gcd(a, m) = 1</script>，同理 <script type="math/tex">b = x \bmod n</script> 也是唯一确定的。</p>
+<p>即可建立映射：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+F:\ \mathbb Z_{mn} &\rightarrow \mathbb Z_m \times \mathbb Z_n\\
+x &\;\mapsto\; (a, b)
+\end{aligned}</script><p>接下来，设任意一对 <script type="math/tex">(a, b)</script>，其中 <script type="math/tex">0 \le a < m</script>，<script type="math/tex">0 \le b < n</script>，且 <script type="math/tex">\gcd(a, m) = 1</script>，<script type="math/tex">\gcd(b, n) = 1</script>，设线性同余方程组：</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+x\equiv a \pmod{m}\\
+x\equiv b \pmod{n}
+\end{cases}</script><p>在上文已经证明，使用 CRT 求解该线性同余方程组，在模 <script type="math/tex">mn</script> 意义下该方程组存在 <strong>唯一解</strong> <script type="math/tex">x</script>，<script type="math/tex">x < mn</script>。对于 <script type="math/tex">x\equiv a \pmod m</script>，可知 <script type="math/tex">x \bmod m = a \bmod m = a</script>。由 <script type="math/tex">\gcd(a, m) = 1</script> 可知</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\gcd(x, m)&= \gcd(m, x \bmod m) \\
+          &= \gcd(m, a \bmod m) \\
+          &= \gcd(a, m) \\
+          &= 1
+\end{aligned}</script><p>同理可推出 <script type="math/tex">\gcd(x, n) = 1</script>。</p>
+<p>已知 <script type="math/tex">\gcd(m, n) = 1</script>，<script type="math/tex">\gcd(x, m) = 1</script>，<script type="math/tex">\gcd(x, n) = 1</script>，设 <script type="math/tex">\gcd(x, mn) = d > 1</script>，即 <script type="math/tex">d</script> 含素因子 <script type="math/tex">p > 1</script> 满足 <script type="math/tex">p \mid x</script>，<script type="math/tex">p \mid mn</script> 且 <script type="math/tex">p \mid m</script> 或 <script type="math/tex">p \mid n</script>。</p>
+<p>若 <script type="math/tex">p \mid m</script>，又因为 <script type="math/tex">p \mid x</script>，所以 <script type="math/tex">\gcd(x, m) \ge p > 1</script>，与 <script type="math/tex">\gcd(x, m)=1</script> 矛盾。</p>
+<p>同理若 <script type="math/tex">p \mid n</script>，与 <script type="math/tex">\gcd(x, n) = 1</script> 矛盾。故 <script type="math/tex">d = 1</script>，即 <script type="math/tex">\gcd(x, mn) = 1</script>。</p>
+<p>即由 <script type="math/tex">[0, m - 1]</script> 中的一个与 <script type="math/tex">m</script> 互质的数 <script type="math/tex">a</script> 和由 <script type="math/tex">[0, n - 1]</script> 中的一个与 <script type="math/tex">n</script> 互质的数 <script type="math/tex">b</script> 可以唯一确定一个数 <script type="math/tex">x</script> 满足 <script type="math/tex">x \in [0, mn - 1]</script> 且 <script type="math/tex">\gcd(x, mn) = 1</script>。</p>
+<p>即可建立映射：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+G:\ \mathbb Z_m \times \mathbb Z_n &\rightarrow \mathbb Z_{mn}\\
+(a, b) &\;\mapsto\; x
+\end{aligned}</script><p>任取 <script type="math/tex">x \in \mathbb Z_{mn}</script>，记 <script type="math/tex">(a, b) = F(x)</script>。由 <script type="math/tex">G</script> 的定义，<script type="math/tex">G(a, b) = t</script> 是满足</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+t\equiv a\pmod{m}\\
+t\equiv b\pmod{n}\\
+0 \le t < mn
+\end{cases}</script><p>的唯一元。而 <script type="math/tex">x</script> 本身满足该方程组，故 <script type="math/tex">G(F(x)) = t = x</script>，即 <script type="math/tex">G\circ F=\mathrm{id}_{\mathbb Z_{mn}}</script>。</p>
+<p>任取 <script type="math/tex">(a,b)\in\mathbb Z_m\times\mathbb Z_n</script>，令 <script type="math/tex">x = G(a,b)</script>。根据</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+x\equiv a \pmod{m}\\
+x\equiv b \pmod{n}
+\end{cases}</script><p>可知</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+a = x \bmod m\\
+b = x \bmod n
+\end{cases}</script><p>于是 <script type="math/tex">F(G(a, b)) = (a, b)</script>，即 <script type="math/tex">F \circ G = \mathrm{id}_{\mathbb Z_m \times \mathbb Z_n}</script>。</p>
+<p>因此 <script type="math/tex">F</script> 与 <script type="math/tex">G</script> 互为逆映射，<script type="math/tex">F</script> 是双射，欧拉函数是积性函数得证。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这次文章表面上是一篇泛泛地写一些数论的基本知识，实际上是在不断地铺垫证明欧拉函数的知识点，饺子醋大概也就这样了吧。</p>
+<p>中间为了节省篇幅还是跳过了不少需要严谨证明的东西，甚至最开始想要严格定义整数来着，洋洋洒洒写了一半的定义后意识到这样写会导致篇幅像上篇一样不受控制地发展……真是吓到我了，于是选择了及时止损，将整数的定义删去了。<span class="hide"><object><p>我又不是数学专业的，写不出来不丢人（确信）。</p></object></span></p>
+<p>正如标题所说，数论真的是非常非常难学的一门学科。对于我这种数学苦手来说，口头上说这些是数论的基础知识，但实际上自己其实最多也就学到这种深度，以后大概是没什么能写的了。</p>
+<p>接下来是本博客的未来目标和定位，作为开设本博客的初心，未来肯定依然会是以技术方向的文章为主，会是笔记、教程、、、或是分享。接着是博客装修，大概会一边调主题的同时一边慢慢地迁移技术栈到 <code>Next.js</code>，争取在半年左右的时间让本站焕然一新🥰</p>
+<p>最后，感谢 OI Wiki、感谢知乎、感谢各家大模型对本站写作的大力支持。</p>
+<p>朋友们，下个月见~</p><div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2026/06/30/segment-tree-and-euler-function/">生日作 来点算法嘉豪 Prev →</a></div></div></div><div id="comments"><div id="giscus"></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a></div></div></article><aside><div id="about"><div class="aside-section-header"><span>OVERVIEW</span><small>PROFILE</small></div><a href="/" id="logo"><img src="https://avatars.githubusercontent.com/u/146634708" alt="Logo" style="margin:0;border-radius:50%;"></a><h1 id="Dr"><a href="/">OneIs2Much</a></h1><div id="description"><p>无病呻吟</p></div><div id="social-links"><a class="social" target="_blank" rel="noopener" href="https://github.com/OneIs2much"><i class="fab fa-github" alt="GitHub"></i></a><a class="social" href="mailto:oooneis2much@gmail.com"><i class="fa fa-envelope" alt="E-Mail"></i></a><a class="social" href="https://oneis2much.github.io/rss.xml"><i class="fa-solid fa-rss" alt="rss"></i></a></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%92%8C%E8%BF%90%E7%AE%97"><span class="toc-number">1.</span> <span class="toc-text">对象和运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%99%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">余数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E4%BD%99"><span class="toc-number">1.2.</span> <span class="toc-text">同余</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E7%AE%97%E6%9C%AF"><span class="toc-number">1.3.</span> <span class="toc-text">模算术</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">一元线性同余方程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%86%E5%85%83"><span class="toc-number">2.1.</span> <span class="toc-text">逆元</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97"><span class="toc-number">2.2.</span> <span class="toc-text">欧几里得</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97"><span class="toc-number">2.3.</span> <span class="toc-text">拓展欧几里得</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">中国剩余定理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What"><span class="toc-number">3.1.</span> <span class="toc-text">What</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How"><span class="toc-number">3.2.</span> <span class="toc-text">How</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">欧拉函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol></div></div><footer><nobr><span class="icp-title">萌</span><a class="icp-content" target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=20260636">萌ICP备20260636号</a></nobr><br></footer></aside></main></body></html>

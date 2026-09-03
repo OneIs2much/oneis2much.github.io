@@ -6,7 +6,7 @@
   <link href="https://oneis2much.github.io/rss.xml" rel="self"/>
   
   <link href="https://oneis2much.github.io/"/>
-  <updated>2026-08-10T12:46:53.391Z</updated>
+  <updated>2026-09-03T12:24:24.946Z</updated>
   <id>https://oneis2much.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【DLC】宝宝你是一个很难学的数论啊啊啊啊啊啊啊</title>
+    <link href="https://oneis2much.github.io/2026/08/28/explorations%E2%80%91in%E2%80%91number%E2%80%91theory/"/>
+    <id>https://oneis2much.github.io/2026/08/28/explorations%E2%80%91in%E2%80%91number%E2%80%91theory/</id>
+    <published>2026-08-27T16:00:00.000Z</published>
+    <updated>2026-09-03T12:24:24.946Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;量少管饿&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="算法" scheme="https://oneis2much.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="cpp" scheme="https://oneis2much.github.io/tags/cpp/"/>
+    
+  </entry>
   
   <entry>
     <title>生日作 来点算法嘉豪</title>
